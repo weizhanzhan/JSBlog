@@ -63,7 +63,7 @@ export default {
         }
     },
     methods:{
-        select(val,name){
+            select(val,name){
                 this.selectTap=val
                 this.$router.push({name:name})
             },
@@ -72,9 +72,27 @@ export default {
             },
             mouseover(val){
                 this.mouseId=val
+            },
+            changeTap(){
+                console.log(this.$route.path)
+                switch(this.$route.path){
+                    case '/article':
+                         this.selectTap=1;
+                         break
+                    case '/dynamic':
+                         this.selectTap=2;
+                         break
+                    case '/leaving':
+                         this.selectTap=3;
+                         break
+                    case '/writing':
+                         this.selectTap=4;
+                         break
+                }
             }
     },
     created(){
+       this.changeTap()
     }
 
 }

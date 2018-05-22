@@ -1,43 +1,21 @@
 <template>
   <div>
     <div>
+      <modal :types="check"></modal>
       <textarea id="demo" style="display: none;"></textarea>
-      <div class="ui basic modal" ref="modal">
-  <i class="close icon"></i>
-  <div class="header">
-    Archive Old Messages
-  </div>
-  <div class="image content">
-
-    <div class="description">
-      <p>请输入您的通行证账号</p>
-      <input type="text" v-model="pwd">
-    </div>
-  </div>
-  <div class="actions">
-    <div class="two fluid ui inverted buttons">
-      <div class="ui cancel red basic inverted button">
-        <i class="remove icon"></i>
-        No
-      </div>
-      <div class="ui ok green basic inverted button">
-        <i class="checkmark icon"></i>
-        Yes
-      </div>
-    </div>
-  </div>
-</div>
+  
     </div>
   </div>
 </template>
 
 <script>
-
+import Modal from '../../base/modal'
 export default {
     data(){
       return{
          pwd:'',
-         test:''
+         test:'',
+         check:''
 
       }
     },
@@ -59,14 +37,11 @@ export default {
       }
     },
     beforeRouteEnter(to,from,next){
-       localStorage.setItem('mydata',JSON.stringify({name:'weizhan',age:2}))
-        //  $('.ui.basic.modal')
-        //     .modal('show')
-        //   ;
-        // if(false){
-        //   next()
-        // }
-        next()
+       
+        next(vm=>{
+          vm.check="success"
+        })         
+        
     },
     mounted(){
        layui.use('layedit', function(){
@@ -74,6 +49,9 @@ export default {
           layedit.build('demo'); //建立编辑器
           });
           
+    },
+    components:{
+      Modal
     }
 
 }
