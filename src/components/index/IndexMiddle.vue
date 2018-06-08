@@ -168,7 +168,7 @@ export default {
 .list-item{
     position: relative;
     display: flex;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 3px solid #f0f0f0;
     padding: 0 2px 17px 0;
 }
 .wrap-img{
