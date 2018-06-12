@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-
+      <component-alert ref="alert"></component-alert>
       <div class="form-group">
          <label for="exampleInputEmail1">Title</label>
          <input  class="form-control" v-model="article.title" id="Title"  placeholder="Enter Title">
@@ -21,6 +21,7 @@
 <script>
 import Modal from '../../base/modal'
 import { VueEditor } from 'vue2-editor'
+import qs from 'qs';
 export default {
     data(){
       return{
@@ -32,6 +33,7 @@ export default {
            author:'',
            content:''
          },
+         alerttext:""
       }
     },
     created(){
@@ -41,15 +43,16 @@ export default {
     },
     methods:{
       submit(){
-        console.log(this.article)
-        $.ajax({
-          type:'post',
-          data:this.article,
-          url:'http://localhost:5000/api/write'
-        })
-        .done(data=>{
-          console.log('success',data)
-        })
+
+         //  this.$refs.alert.show({ content:"注册成功，请登陆！",status:"success"})
+            this.$refs.alert.show({ content:"注册失败，请重新！",status:"error"})
+        // this.http.post("http://localhost:5000/api/blog/addblog",qs.stringify(this.article),{
+        // headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        // })
+        // .then(res=>{
+        //   console.log(res)
+        // })
+  
       }
     },
     beforeRouteEnter(to,from,next){

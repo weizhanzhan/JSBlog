@@ -4,6 +4,15 @@ import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
 import Routes from './router/index'
+import axios from 'axios'
+
+import componentAlert from './components/base/alert'
+
+
+Vue.component('component-alert',componentAlert)
+
+
+Vue.prototype.http=axios
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
