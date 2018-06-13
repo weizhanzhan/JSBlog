@@ -12,6 +12,7 @@
       </div>
 
       <modal :types="check"></modal>
+      <div v-html="article.content"></div>
       <vue-editor v-model="article.content"></vue-editor>
       <button  class="btn btn-primary" @click="submit">提交</button>
     </div>
@@ -20,7 +21,7 @@
 
 <script>
 import Modal from '../../base/modal'
-import { VueEditor } from 'vue2-editor'
+import { VueEditor, Quill } from 'vue2-editor'
 import qs from 'qs';
 export default {
     data(){
@@ -37,21 +38,24 @@ export default {
       }
     },
     created(){
-      console.log(123)     
+      console.log(Quill)     
     },
     updated(){
     },
     methods:{
-      submit(){
-
-         //  this.$refs.alert.show({ content:"注册成功，请登陆！",status:"success"})
-            this.$refs.alert.show({ content:"注册失败，请重新！",status:"error"})
-        // this.http.post("http://localhost:5000/api/blog/addblog",qs.stringify(this.article),{
-        // headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        // })
-        // .then(res=>{
-        //   console.log(res)
-        // })
+      submit(){     
+        this.http.post("http://localhost:5000/api/blog/addblog",qs.stringify(this.article),{
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        })
+        .then(res=>{
+          for(var data in res.data.msg){
+              this.$refs.alert.show({ content:res.data.msg[data],status:res.data.status})        
+          } 
+          return             
+        })
+        .then(()=>{
+          this.$router.push({path:"/artice"})     
+        })
   
       }
     },
@@ -74,5 +78,4 @@ export default {
 </script>
 
 <style>
-
 </style>

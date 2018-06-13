@@ -7,6 +7,10 @@ import Routes from './router/index'
 import axios from 'axios'
 
 import componentAlert from './components/base/alert'
+import { VueEditor, Quill } from 'vue2-editor'
+
+
+
 
 
 Vue.component('component-alert',componentAlert)

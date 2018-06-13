@@ -39,7 +39,7 @@ export default {
             val!=""?val:""
             if(val)
                val.isshow=true
-            this.alertShow.push(val!=""?val:"")
+               this.alertShow.unshift(val!=""?val:"")
             // var t=setTimeout(()=>{
             //      this.alertShow=""
             // },3000)
