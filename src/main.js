@@ -4,7 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
 import Routes from './router/index'
+import Vuex from 'vuex'
 import axios from 'axios'
+import store from './store'
+
 
 import componentAlert from './components/base/alert'
 import { VueEditor, Quill } from 'vue2-editor'
@@ -30,5 +33,6 @@ new Vue({
   el: '#app',
   components: { App },
   template: '<App/>',
-  router
+  router,
+  store
 })

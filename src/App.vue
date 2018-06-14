@@ -1,5 +1,6 @@
 <template>
   <div>
+    <component-alert ></component-alert>
     <index-header></index-header>
     <router-view></router-view>
   </div>

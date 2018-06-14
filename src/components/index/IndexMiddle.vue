@@ -1,5 +1,6 @@
 <template>
   <div>
+      
       <div class="container">   
         <div class="row">
             <div class="main">
@@ -30,7 +31,9 @@
                         </a>                                           
                     </div>
                     <div class="list-content">
-                        <router-view></router-view>
+                         <transition name="fade">
+                           <router-view></router-view>
+                         </transition>
                     </div>
                 </div>  
           
@@ -39,6 +42,7 @@
         </div>         
     </div>  
   </div>
+
 </template>
 
 <script>
@@ -229,5 +233,11 @@ export default {
 .list-meta-i{
     margin-right: 10px;
     color:#b4b4b4;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
