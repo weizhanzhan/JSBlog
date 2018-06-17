@@ -4,27 +4,27 @@ Vue.use(Vuex)
 var Store
 export default Store= new Vuex.Store({
       state: {
-        alert:""
+        alert:[],
+        alertstatus:''
       },
       getters:{
 
       },
       mutations: {
         addalert(state,data){
-             state.alert=data
-            
-             setTimeout(()=>{
-                console.log("iam coming")
-                state.alert=data
+            console.log(data)
+            state.alertstatus=data.status
+            for(var key in data.msg){
+              state.alert.push(data.msg[key])             
+            }
+             var out=setTimeout(()=>{
+                var inter=setInterval(()=>{
+                  state.alert.splice(0,1)
+                  if(state.alert.length==0)
+                     clearInterval(inter)
+                },400)
              },3000)
-        },
-        cleanalert(state,data){
-            console.log("iam coming")
-             setTimeout(()=>{
-                state.alert=data
-             },3000)
-        }
-        
+        },       
       },
       actions:{}
 

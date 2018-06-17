@@ -1,32 +1,20 @@
 <template>
+ 
    <div>
-      <!-- <div  v-for="(data,index) in alertShow" v-if="data.isshow" :key="index" :style="{position:'fixed',right:'20px',top:index*(1+60)+'px'}" >
-           {{closeevery(data,index)}}
-        <div v-show="data.status=='success'" class="ui success message">
-            
-        <i class="close icon" @click="close" ></i>
-        <div class="header">{{data.content}} </div>   
-      </div>
-      <div v-show="data.status=='error'" class="ui negative message">
-          
-        <i class="close icon"></i>
-        <div class="header">{{data.content}}</div>
-      </div>
-    </div> -->
-     <div style="position:fixed;right:20px;top:20px" v-show="$store.state.alert">
-          
-        <div class="ui success message">
-            
-        <i class="close icon" @click="close" ></i>
-        <div class="header"> {{$store.state.alert}} </div>   
-      </div>
-      
-    </div>
-    
-   </div>
-   
-    
-<!-- </transition> -->
+     <div v-show="$store.state.alert.length!=0" 
+          v-for="(text,index) in $store.state.alert" 
+          :key="index"  
+          :style="alertStyle(index)">        
+        <div v-show="status=='success'" class="ui success message">       
+          <i class="close icon" @click="close" ></i>
+          <div class="header" > {{text}} </div>   
+        </div>     
+        <div v-show="status=='error'" class="ui negative message">       
+          <i class="close icon"></i>
+          <div class="header">{{text}} </div>
+        </div>      
+    </div>   
+   </div>   
 </template>
 
 <script>
@@ -34,36 +22,22 @@ import Vue from 'vue'
 export default {
     data(){
         return{
-            alertShow:[],
-   
+            alertShow:[], 
             top:0
         }
     },
+    computed:{
+        status(){
+            return this.$store.state.alertstatus
+        }
+    },
     methods:{
-        show(val){
-   
-     
-       
-            val!=""?val:""
-            if(val)
-               val.isshow=true
-               this.alertShow.unshift(val!=""?val:"")
-            // var t=setTimeout(()=>{
-            //      this.alertShow=""
-            // },3000)
-        },
         close(val){
            this.alertShow=false
         },
-        closeevery(val,index){
-            console.log(val)
-            var t=setTimeout(()=>{
-                 //this.alertShow=[]
-                 this.alertShow.splice(index,1)
-                 val.isshow=false
-            },3000)
-       
-        },
+        alertStyle(index){
+           return {'position':'fixed','right':'20px','top':20+index*(1+60)+'px'}
+        }
     }
 
 }
