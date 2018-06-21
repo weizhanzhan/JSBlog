@@ -111,7 +111,8 @@ export default {
             setTimeout(()=>{
               this.isSupport=true
             },500)
-        }
+        },
+       
       
     }
 

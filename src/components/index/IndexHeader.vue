@@ -1,18 +1,19 @@
 <template>
   <div>
-    <div class="header-img">
-        <img class="headimage" :src="headerimg.pic">
-        <h2 class="headerintro">Creativity Never Sleeps</h2>
-      <!-- <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <!-- <div class="header-img"> -->
+      <div>
+        <!-- <img class="headimage" :src="headerimg.pic">
+        <h2 class="headerintro">Creativity Never Sleeps</h2> -->
+      <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
         <h5 class="my-0 mr-md-auto font-weight-normal">ZhanWei</h5>
         <nav class="my-2 my-md-0 mr-md-3">
-            <a class="p-2 text-dark" href="#">github</a>
-            <a class="p-2 text-dark" href="#">Weixin</a>
-            <a class="p-2 text-dark" href="#">About</a>
+            <a class="p-2 text-dark" href="#"><i class="large github icon"></i></a>
+            <a class="p-2 text-dark" href="#"><i class="large qq icon"></i></a>
+            <a class="p-2 text-dark" href="#"><i class="large child icon"></i></a>
             
         </nav>
         <a class="btn btn-outline-primary" href="#">管理中心</a>
-    </div> -->
+    </div>
     </div>
   </div>
 </template>

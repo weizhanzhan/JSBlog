@@ -31,9 +31,13 @@
                         </a>                                           
                     </div>
                     <div class="list-content">
-                         <transition name="fade">
+                         <transition name="bounce"> 
+     
+
+                      
                            <router-view></router-view>
-                         </transition>
+                     
+                        </transition> 
                     </div>
                 </div>  
           
@@ -102,8 +106,25 @@ export default {
 }
 </script>
 <style>
-
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .container{
+
 }
 .row{
     margin: 0 auto;

@@ -42,7 +42,7 @@ const router=new VueRouter({
     //    console.log("icoming")
     //     return { x: 0, y: 500 }
     //  }
-     return { x: 0, y: 500 }
+     return { x: 0, y: 0 }
   }
 })
 

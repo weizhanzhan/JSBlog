@@ -15,6 +15,7 @@
       <div v-html="article.content"></div>
       <vue-editor v-model="article.content"></vue-editor>
       <button  class="btn btn-primary" @click="submit">提交</button>
+      <input type="file" id="ad"/><a @click="upload">上传</a>
     </div>
   </div>
 </template>
@@ -56,6 +57,9 @@ export default {
                 
         }) 
             
+      },
+      upload(){
+        console.log(document.getElementById('ad').files)
       }
     },
     beforeRouteEnter(to,from,next){
