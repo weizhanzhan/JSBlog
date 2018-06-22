@@ -11,9 +11,12 @@ import store from './store'
 //基础组件
 import componentAlert from './components/base/alert'
 import Page from './components/base/page'
+import Replay from "./components/base/replay"
 
 Vue.component('component-alert',componentAlert)
 Vue.component('page',Page)
+Vue.component('replay',Replay)
+
 import { VueEditor, Quill } from 'vue2-editor'
 
 import DateFormat from "../static/js/Dateformat.js"

@@ -29,13 +29,11 @@
           <div class="text">
             <p>這對我的研究是非常有用.謝謝!</p>
           </div>
-          <div class="actions">
-            <a class="reply">Reply</a>
-          </div>
-          <div class="form-group">
-            <input  id="email" v-model="email" placeholder="Author">
-            <input  class="form-control" id="email" v-model="email" placeholder="Author">
-          </div>
+          <div class="actions" >
+            <a class="reply" @click="showRep">Reply</a>
+          </div>      
+          <replay :show="repShow"  @close="close"></replay>
+         
         </div>
         <!-- <div class="comments">
           <div class="comment">
@@ -80,7 +78,8 @@ export default {
          content:"",
          allcount:0,
          nowpage:1,
-         pagesize:4
+         pagesize:4,
+         repShow:false
        }
      },
      created(){
@@ -111,6 +110,13 @@ export default {
         nextpage(next){
            this.nowpage=next;
            this.init()
+        },
+        showRep(){
+          this.repShow=true
+        },
+        close(val){
+            this.repShow=val
+            console.log(this.show)
         }
      }
 

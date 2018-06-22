@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-            <ul class="node-list">
+            <!-- <ul class="node-list">
                 <li class="list-item" v-for="n in 2" :key="n">
                 
                     <div class="node-content" id="contentWz" >
@@ -26,14 +26,80 @@
                       <img class="wrap-image" src="https://upload-images.jianshu.io/upload_images/5731803-1e2ea966eb8e32c5.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240" />
                     </div>                           
                 </li>
-            </ul>           
+            </ul>            -->
+         <div class="ui people shape">
+  <div class="sides">
+    <div class="side active">
+      <div class="ui card">
+        <div class="image">
+          <img src="/images/avatar/large/steve.jpg">
+        </div>
+        <div class="content">
+          <div class="header">史蒂夫·乔布斯</div>
+          <div class="meta">
+            <a>Acquaintances</a>
           </div>
+          <div class="description">Steve Jobes is a fictional character designed to resemble someone familiar to readers. </div>
+        </div>
+        <div class="extra content">
+          <span class="right floated">2014年加入 </span>
+          <span><i class="user icon"></i> 151 Friends </span>
+        </div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="ui card">
+        <div class="image">
+          <img src="/images/avatar/large/stevie.jpg">
+        </div>
+        <div class="content">
+          <a class="header">Stevie Feliciano</a>
+          <div class="meta">
+            <span class="date">2014年加入</span>
+          </div>
+          <div class="description">Stevie Feliciano是一名居住在纽约的图书馆信息科学家。她喜欢阅读、跑步和写作。 </div>
+        </div>
+        <div class="extra content">
+          <a><i class="user icon"></i> 22 Friends </a>
+        </div>
+      </div>
+    </div>
   </div>
+</div><br>
+               <div class="ui ignored icon direction buttons">
+                    <div class="ui button" @click="left">
+                        <i class="left long arrow icon"></i>
+                    </div>
+                    <div class="ui button" @click="up">
+                        <i class="up long arrow icon"></i>
+                    </div>
+                    <div class="ui button" @click="right">
+                        <i class="right long arrow icon"></i>
+                    </div>
+                    <div class="ui button" @click="down">
+                        <i class="down long arrow icon"></i>
+                    </div>
+                    </div>
+                 </div>
+           </div>
 </template>
 
 <script>
 export default {
-
+     methods:{
+         up(){
+            $('.shape').shape('flip up'); 
+         },
+         down(){
+            $('.shape').shape('flip down'); 
+         },
+         left(){
+            $('.shape').shape('flip left'); 
+         },
+         right(){
+            $('.shape').shape('flip right'); 
+         }
+     }
 }
 </script>
 
