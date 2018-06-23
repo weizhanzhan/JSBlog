@@ -1,7 +1,6 @@
 <template>
   <div>
     <div>
-       <component-alert ref="alert"></component-alert>
       <div class="form-group">
          <label for="exampleInputEmail1">Title</label>
          <input  class="form-control" v-model="article.title" id="Title"  placeholder="Enter Title">
@@ -10,12 +9,9 @@
         <label for="exampleInputPassword1">Author</label>
         <input  class="form-control" id="Author" v-model="article.author" placeholder="Author">
       </div>
-
       <modal :types="check"></modal>
-      <div v-html="article.content"></div>
       <vue-editor v-model="article.content"></vue-editor>
       <button  class="btn btn-primary" @click="submit">提交</button>
-      <input type="file" id="ad"/><a @click="upload">上传</a>
     </div>
   </div>
 </template>
@@ -38,40 +34,18 @@ export default {
          alerttext:""
       }
     },
-    created(){
-      console.log(this.$store.state.alert)
-       
-    },
-    updated(){
-    },
     methods:{
       submit(){     
         this.http.post("/blog/addblog",qs.stringify(this.article),{
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
         })
         .then(res=>{
-          console.log(res)
           this.Base.messageBox(res.data)
           // if(res.data.status=="success")
           //     this.$router.push({path:"/artice"})   
                 
-        }) 
-            
+        })           
       },
-      upload(){
-        console.log(document.getElementById('ad').files)
-      }
-    },
-    beforeRouteEnter(to,from,next){
-       
-        next(vm=>{
-         // vm.check="success"
-        })         
-        
-    },
-    mounted(){
-      
-          
     },
     components:{
       Modal,VueEditor

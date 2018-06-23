@@ -13,41 +13,25 @@
                <transition name="yes"  >
                   <div class="header" @click="supportA" href="#" v-if="isSupport"><i class="like icon"></i>点个赞呗</div>
                </transition>
-
                 <transition name="no">
                   <div class="header" @click="supportB" v-if="disSupport"><i class="red heart icon"></i>已赞！</div>
                </transition>
-            </div>
-            
+            </div>        
           </div>
         </div>
         <div class="ui comments">
           <h3 class="ui dividing header">评论区</h3>
-          <div class="comment" v-for="(com,index) in blog.comment" :key="index">
-            <a class="avatar"><img :src="avatar"></a>
-            <div class="content">
-              <a class="author">{{com.email}}</a>
-              <div class="metadata">
-              <span class="date">{{blogdate(com.date)}}</span>
-              </div>
-              <div class="text">{{com.content}}</div>
-              <div class="actions">
-                <a class="reply">Reply</a>
-            </div>
+          <div class="ui comments">
+          <text-item 
+             v-for="(com,index) in blog.comment" 
+             :key="index" :obj="com" 
+             :url="'blog/repcomment/'+$route.params.id"
+             @reload="reload"
+             >
+          </text-item>
           </div>
-          </div>
-          <form class="ui reply form">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input  class="form-control" id="email" v-model="comment.email" placeholder="Author">
-          </div>
-          <div class="field">
-            <textarea v-model="comment.content"></textarea>
-          </div>
-          <div class="ui blue labeled submit icon button" @click="AddComment"><i class="icon edit"></i>发表评论</div>
-        </form>
-       </div>
-       
+          <text-form :url="'blog/addcomment/'+this.$route.params.id" @formReload="formReload"></text-form>
+        </div>   
        </div>
        <vue-editor style="display:none"></vue-editor>
     </div>
@@ -66,10 +50,8 @@ export default {
              content:""
            },
            isSupport:true,
-           disSupport:false
-       
+           disSupport:false      
        }
-
     },
     components:{VueEditor},
     created(){
@@ -79,21 +61,11 @@ export default {
         init(){
             this.http.get("/blog/getblog/"+this.$route.params.id)
             .then(data=>{
+                  data.data.comment.forEach(com=>{
+                    com.show=false
+                  })
                 this.blog=data.data
-                console.log(this.blog)
             })
-        },
-        AddComment(){
-          console.log(this.comment)
-          this.http.post("blog/addcomment/"+this.$route.params.id,qs.stringify(this.comment),{
-           headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-          })
-          .then(res=>{
-             this.init()
-          }) 
-        },
-        blogdate(val){
-           return new Date(val).Format("yyyy-MM-dd hh:mm:ss")
         },
         supportA(){
           this.isSupport=false
@@ -101,9 +73,7 @@ export default {
              this.disSupport=true
           },500)       
           this.http.get("/blog/addLikes/"+this.$route.params.id)
-            .then(res=>{
-                console.log(res)
-               
+            .then(res=>{              
             }) 
         },
         supportB(){
@@ -112,6 +82,12 @@ export default {
               this.isSupport=true
             },500)
         },
+        reload(){
+          this.init()
+        },
+        formReload(){
+          this.init()
+        }
        
       
     }

@@ -8,14 +8,19 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import store from './store'
 
+
 //基础组件
 import componentAlert from './components/base/alert'
 import Page from './components/base/page'
 import Replay from "./components/base/replay"
+import TextItem from "./components/base/textItem"
+import TextForm from "./components/base/textForm"
 
 Vue.component('component-alert',componentAlert)
 Vue.component('page',Page)
 Vue.component('replay',Replay)
+Vue.component('text-item',TextItem)
+Vue.component('text-form',TextForm)
 
 import { VueEditor, Quill } from 'vue2-editor'
 
@@ -48,7 +53,9 @@ const router=new VueRouter({
      return { x: 0, y: 0 }
   }
 })
-
+Vue.directive('date', function (el, binding) {
+  el.innerHTML=new Date(binding.value.date).Format("yyyy-MM-dd hh:mm:ss")
+})
 new Vue({
   el: '#app',
   components: { App },

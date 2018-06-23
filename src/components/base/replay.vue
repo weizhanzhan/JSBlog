@@ -1,9 +1,16 @@
 <template>
 <transition name="fade">
-    <div v-if="show"> 
+    <div v-show="isshow" >      
        <div class="alert alert-secondary" role="alert">
         <form>
-            <div class="form-row">
+            <ul>
+               <li v-for="(rep,index) in show.replay" :key="index" class="list-li">
+                  <div>{{rep.email}} :{{rep.content}}</div>
+                  <div style="text-align:right" v-date="{ date:rep.date }" >
+                  </div>
+               </li>
+            </ul>
+            <div class="form-row" style="margin-top:10px">
                 <div class="form-group col-md-4">        
                   <input type="email" class="form-control" id="email" v-model="email" placeholder="Email">
                 </div>
@@ -13,31 +20,57 @@
             </div>         
         </form>
         <div style="text-align:right">
-           <button type="button" class="btn btn-info">发表</button>
+           <button type="button" class="btn btn-info" @click="add">发表</button>
            <button type="button" class="btn btn-danger" @click="back">取消</button>
         </div>
-          </div>          
+      </div>          
     </div>
 </transition>
 </template>
 
 <script>
+import Vue from "vue"
+import qs from 'qs'
 export default {
        props:{
            show:{
-               type:Boolean,
-               default:false
+               type:Object,          
+           },
+           url:{
+               type:String
            }
        },
        data(){
            return{
               email:"",
-              content:""
+              content:"",
+              isshow:this.show.show
+           }
+       },
+       watch:{
+           'show.show'(val){
+               this.isshow=val
            }
        },
        methods:{
            back(){
-               this.$emit("close",false)
+               Vue.set(this.show,'show',false)
+           },
+           add(){
+               let rep={
+                   email:this.email,
+                   content:this.content,
+                   _id:this.show._id
+               }
+               this.http.post(this.url,qs.stringify(rep))
+               .then(data=>{
+                   if(data.data.status="success"){
+                       this.back();
+                       this.email="";
+                       this.content="";
+                       this.$emit("reload",true)
+                   }
+               })
            }
        }
 
@@ -55,5 +88,9 @@ export default {
 /* .slide-fade-leave-active for below version 2.1.8 */ {
   transform: translateX(10px);
   opacity: 0;
+}
+.list-li{
+    margin-top: 10px;
+    border-bottom:1px solid #D8BFD8
 }
 </style>
