@@ -25,7 +25,9 @@
           <text-item 
              v-for="(com,index) in blog.comment" 
              :key="index" :obj="com" 
-             :url="'blog/repcomment/'+$route.params.id"
+             :replyurl="'blog/repcomment/'+$route.params.id"
+             :likeurl="'blog/addlike/'+$route.params.id+'/'"
+             :dislikeurl="'blog/adddislike/'+$route.params.id+'/'"
              @reload="reload"
              >
           </text-item>

@@ -21,3 +21,5 @@ npm run build --report
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 base 基础方法
+
+this.Base.messageBox({msg:{error:"初始页!"},status:"error"}) //message 格式

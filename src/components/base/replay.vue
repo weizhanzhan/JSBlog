@@ -36,7 +36,7 @@ export default {
            show:{
                type:Object,          
            },
-           url:{
+           replyurl:{
                type:String
            }
        },
@@ -62,7 +62,8 @@ export default {
                    content:this.content,
                    _id:this.show._id
                }
-               this.http.post(this.url,qs.stringify(rep))
+               console.log(this.replyurl)
+               this.http.post(this.replyurl,qs.stringify(rep))
                .then(data=>{
                    if(data.data.status="success"){
                        this.back();

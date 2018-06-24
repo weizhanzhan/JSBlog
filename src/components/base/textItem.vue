@@ -11,10 +11,10 @@
           <div class="text">{{obj.content}}</div>
           <div class="actions">
             <a class="reply" @click="showRep(obj)" >Reply({{obj.replay.length}})</a>
-            <a class="reply"><i class="thumbs outline up icon"></i>{{obj.likes}}</a>
-            <a class="reply"><i class="thumbs outline down icon"></i>{{obj.dislikes}}</a>
+            <a class="reply" @click="addlike"><i class="thumbs outline up icon" ></i>{{obj.likes}}</a>
+            <a class="reply" @click="adddislike"><i class="thumbs outline down icon"></i>{{obj.dislikes}}</a>
           </div>
-          <replay :show="obj" :url="url" @reload="reload"></replay>
+          <replay :show="obj" :replyurl="replyurl" @reload="reload"></replay>
         </div>
       </div>        
 </template>
@@ -25,8 +25,14 @@ export default {
         obj:{
             type:Object
         },
-        url:{
+        replyurl:{
             type:String
+        },
+        likeurl:{
+          type:String
+        },
+        dislikeurl:{
+          type:String
         }
     },
     methods:{
@@ -35,6 +41,25 @@ export default {
         },
         reload(val){
             this.$emit('reload',true)
+        },
+        addlike(){
+          console.log(this.obj)
+          this.http.get(this.likeurl+this.obj._id)//
+          .then(res=>{
+            console.log(res.data)
+             this.Base.messageBox(res.data)
+            this.$emit('reload',true)
+          })
+          
+        },
+        adddislike(){
+
+          this.http.get(this.dislikeurl+this.obj._id)//
+          .then(res=>{
+            console.log(res.data)
+             this.Base.messageBox(res.data)
+            this.$emit('reload',true)
+          })
         }
     }
 

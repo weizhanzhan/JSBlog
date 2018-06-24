@@ -6,7 +6,9 @@
          <text-item 
              v-for="(msg,index) in messages" 
              :key="index" :obj="msg" 
-             url="/message/repmessage"
+             replyurl="/message/repmessage"
+             likeurl="/message/addlike/"
+             dislikeurl="/message/adddislike/"
              @reload="reload"
              >
          </text-item>
