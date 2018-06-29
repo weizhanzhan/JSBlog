@@ -35,6 +35,12 @@ export default {
           type:String
         }
     },
+    data(){
+      return{
+      like:1,
+      dislike:1
+      }
+    },
     methods:{
         showRep(data){
           data.show=!data.show
@@ -43,23 +49,34 @@ export default {
             this.$emit('reload',true)
         },
         addlike(){
-          console.log(this.obj)
-          this.http.get(this.likeurl+this.obj._id)//
-          .then(res=>{
-            console.log(res.data)
-             this.Base.messageBox(res.data)
-            this.$emit('reload',true)
-          })
+          console.log(this.like)
+          if(this.like>1){
+             this.Base.messageBox({msg:{error:"您已赞过!"},status:"error"})
+          }else{
+              this.$loading(true)
+              this.http.get(this.likeurl+this.obj._id)//
+              .then(res=>{
+                 this.$loading(false)
+                this.like++
+                this.Base.messageBox(res.data)
+                this.$emit('reload',true)
+              })
+          }
           
         },
         adddislike(){
-
-          this.http.get(this.dislikeurl+this.obj._id)//
-          .then(res=>{
-            console.log(res.data)
-             this.Base.messageBox(res.data)
-            this.$emit('reload',true)
-          })
+          if(this.dislike>1){
+              this.Base.messageBox({msg:{error:"您已评价过啦!"},status:"error"})
+          }else{
+              this.$loading(true)
+              this.http.get(this.dislikeurl+this.obj._id)//
+              .then(res=>{
+                this.$loading(false)
+                this.dislike++
+                this.Base.messageBox(res.data)
+                this.$emit('reload',true)
+              })
+          }
         }
     }
 

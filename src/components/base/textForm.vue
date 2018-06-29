@@ -29,13 +29,16 @@ export default {
     },
     methods:{
         add(){
+          this.$loading(true)
           let newmsg={}
           newmsg.email=this.email;
           newmsg.content=this.content
+          
           this.http.post(this.url,qs.stringify(newmsg))
           .then(res=>{
              this.email="",
              this.content=""
+             this.$loading(false)
              this.$emit('formReload',true)
           })
         }

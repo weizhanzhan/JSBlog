@@ -17,8 +17,7 @@
                                 <span class="top-info-text" v-html="i.text"></span>
                             </div>  
                         </div>
-                    </div>
-                    
+                    </div>                 
                 </div>
                 <div class="main-content">
                     <div class="ui pointing secondary menu">
@@ -30,17 +29,19 @@
                              <img style="width:1.2rem" :src="tap.pic" />&nbsp;&nbsp;{{tap.text}} 
                         </a>                                           
                     </div>
+                   
+                    <div class="ui segment">
+                       <div class="ui active inverted dimmer" v-show="loading">
+                       <div class="ui text loader">加载</div>
+                     </div>
+                     <p></p>
                     <div class="list-content">
-                         <transition name="bounce"> 
-     
-
-                      
-                           <router-view></router-view>
-                     
+                         <transition name="bounce">                    
+                           <router-view></router-view>                  
                         </transition> 
                     </div>
                 </div>  
-          
+          </div>
             </div>
 
         </div>         
@@ -62,12 +63,17 @@ export default {
                ],
             taps:[
                 {text:'文章',pid:1,pic:require('./img/remen.png')},
-                {text:'动态',pid:2,pic:require('./img/dongtai.png')},
+                {text:'个人',pid:2,pic:require('./img/dongtai.png')},
                 {text:'留言',pid:3,pic:require('./img/newpinglun.png')},
                 {text:'写博客',pid:4,pic:require('./img/wenzhang.png')}
             ],
             selectTap:1,
             mouseId:'',
+        }
+    },
+    computed:{
+        loading(){
+            return this.$store.state.loading
         }
     },
     methods:{

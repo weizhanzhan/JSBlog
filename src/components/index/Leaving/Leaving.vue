@@ -37,6 +37,7 @@ export default {
      },
      methods:{
         init(){
+           this.$loading(true)
           this.http.get('/message?nowpage='+this.nowpage+"&&pagesize="+this.pagesize)
           .then(msg=>{
             msg.data.msgs.forEach(msg=>{
@@ -44,6 +45,7 @@ export default {
             })
             this.messages=msg.data.msgs         
             this.allcount=msg.data.count
+             this.$loading(false)
           })
         },
         nextpage(next){

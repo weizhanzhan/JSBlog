@@ -57,25 +57,30 @@ export default {
     },
     components:{VueEditor},
     created(){
+        this.$loading(false)
         this.init()
     },
     methods:{
         init(){
+            this.$loading(true)
             this.http.get("/blog/getblog/"+this.$route.params.id)
             .then(data=>{
                   data.data.comment.forEach(com=>{
                     com.show=false
                   })
                 this.blog=data.data
+                this.$loading(false)
             })
         },
         supportA(){
           this.isSupport=false
           setTimeout(()=>{
              this.disSupport=true
-          },500)       
+          },500)   
+          
           this.http.get("/blog/addLikes/"+this.$route.params.id)
-            .then(res=>{              
+            .then(res=>{  
+                         
             }) 
         },
         supportB(){

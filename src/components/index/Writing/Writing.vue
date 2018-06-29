@@ -42,7 +42,7 @@ export default {
         .then(res=>{
           this.Base.messageBox(res.data)
           // if(res.data.status=="success")
-          //     this.$router.push({path:"/artice"})   
+               this.$router.push({path:"/artice"})   
                 
         })           
       },

@@ -57,14 +57,15 @@ export default {
                Vue.set(this.show,'show',false)
            },
            add(){
+               this.$loading(true)
                let rep={
                    email:this.email,
                    content:this.content,
                    _id:this.show._id
                }
-               console.log(this.replyurl)
                this.http.post(this.replyurl,qs.stringify(rep))
                .then(data=>{
+                   this.$loading(false)
                    if(data.data.status="success"){
                        this.back();
                        this.email="";

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    
     <ul class="node-list">
         <li class="list-item" v-for="(blog,index) in blogs" :key="index">              
             <div class="node-content" id="contentWz" >
@@ -48,16 +48,19 @@ export default {
     },
     methods:{
         init(){
+            this.$loading(true)
             this.http.get("/blog?nowpage="+this.nowpage+"&&pagesize="+this.pagesize)
             .then(data=>{
                 this.blogs=data.data.blogs,
                 this.allcount=data.data.count
+                this.$loading(false)
             })
         },
         listdate(val){
             return new Date(val).Format("yyyy-MM-dd hh:mm:ss")
         },
         goDetail(id){
+            this.$loading(true)
             this.http.get("/blog/addViewCount/"+id)
             .then(res=>{
                 this.$router.push({path:'/article/'+id})

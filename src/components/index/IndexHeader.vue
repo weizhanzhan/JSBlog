@@ -12,7 +12,6 @@
             <a class="p-2 text-dark" href="#"><i class="large child icon"></i></a>
             
         </nav>
-        <a class="btn btn-outline-primary" href="#">管理中心</a>
     </div>
     </div>
   </div>

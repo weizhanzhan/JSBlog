@@ -38,6 +38,10 @@ Vue.prototype.Base=Base
 axios.defaults.baseURL="http://localhost:5000/api";
 Vue.prototype.http=axios
 
+Vue.prototype.$loading=state=>{
+  store.commit('load',state)
+}
+
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
@@ -59,6 +63,9 @@ Vue.directive('date', function (el, binding) {
 new Vue({
   el: '#app',
   components: { App },
+  data:{
+    loading:false
+  },
   template: '<App/>',
   router,
   store

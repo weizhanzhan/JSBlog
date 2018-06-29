@@ -5,7 +5,8 @@ var Store
 export default Store= new Vuex.Store({
       state: {
         alert:[],
-        alertstatus:''
+        alertstatus:'',
+        loading:false
       },
       getters:{
 
@@ -24,7 +25,10 @@ export default Store= new Vuex.Store({
                      clearInterval(inter)
                 },400)
              },3000)
-        },       
+        }, 
+        load(state,data){
+          state.loading=data
+        }      
       },
       actions:{}
 

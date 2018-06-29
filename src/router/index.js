@@ -8,7 +8,7 @@ export default[
     { path:'/index',name:'主页' ,component:IndexMiddle,children:[
        { path:'/article',name:'文章',component:Article},
        { path:'/article/:id',name:'文章详情',component:blogDetail},
-       { path:'/dynamic',name:'动态',component:Dynamic},
+       { path:'/dynamic',name:'个人',component:Dynamic},
        { path:'/leaving',name:'留言',component:Leaving},
        { path:'/writing',name:'写博客',component:Writing},
     ],redirect:"/article"},
