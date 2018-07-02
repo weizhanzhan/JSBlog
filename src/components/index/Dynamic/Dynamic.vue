@@ -1,23 +1,24 @@
 <template>
-    <div>
-        <div class="ui two column grid">
-            <div class="column">
-                <div class="ui raised segment">
-                    <a class="ui blue ribbon label">Introduce</a> Brief Introduction
-                    <p></p>
+    <div>      
+        <div class="ui items">
+            <div class="ui two column grid">
+                <div class="column">
+                    <div class="ui raised segment">
+                        <a class="ui blue ribbon label">Introduce</a> Brief Introduction
+                        <p></p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="ui items">
             <div class="item">
                 <a class="ui small image">
                     <img src="https://upload.jianshu.io/users/upload_avatars/11879331/7a968de2-3d8c-46f1-a5ee-74abe239e444?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240">
                 </a>
                 <div class="content">
-                    <a class="header">可爱的小狗</a>
+                    <a class="header">魏展展</a>
                     <div class="description">
-                        <p>萌萌狗有各种形状和大小。有的小狗因为呆萌的表情惹人疼爱，有的则因为五短身材令人怜惜。甚至还有一些会因为巨大的体型也会显得傻缺。</p>
-                        <p>Many people also have their own barometers for what makes a cute dog.</p>
+                        <p>2018毕业于常州信息职业技术学院软件技术专业，主修C#、Asp .Net MVC、javascript</p>
+                        <p>毕业从事web前端开发，业务前端框架Vue.js，主要负责开发模块化前端，根据需求实现页面效果，以及ajax与后台交互</p>
+                        <p>熟悉ES6,H5,Css3,Node.js，自己项目中也通过node.js开发result Api</p>
                     </div>
                 </div>
             </div>
@@ -52,7 +53,31 @@
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="ui two column grid">
+                <div class="column">
+                    <div class="ui raised segment">
+                        <a class="ui green ribbon label">Project</a> Project display
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+             <div class="ui list">
+                <div class="item">
+                     <i class="folder outline icon"></i>
+                    <div class="content"><a href="https://github.com/weizhanzhan/meituan">仿美团webapp</a></div>
+                </div> 
+                <div class="item">
+                     <i class="folder outline icon"></i>
+                    <div class="content"><a href="https://github.com/weizhanzhan/kcpj">Node.js课程评价</a></div>
+                </div>
+                <div class="item">
+                    <i class="github alternate icon"></i>
+                    <div class="content"><a href="https://github.com/weizhanzhan">详见GitHub</a></div>
+                </div>           
+            </div>
+            <div>           
+         </div>       
+        </div> 
     </div>
 </template>
 
@@ -89,7 +114,7 @@
                     }
                 });
 
-            }
+            },
         },
         components: {
 
@@ -99,4 +124,15 @@
 
 <style scoped>
     @import '../../../../static/css/index.css';
+    .side-list{
+        display: flex;
+        width: 100%;
+    }
+    .content{
+        flex: 0 0 360px;
+        width: 360;
+    }
+    .img{
+        flex: 1
+    }
 </style>

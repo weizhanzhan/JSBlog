@@ -29,7 +29,7 @@
         </li>
     </ul>
     <page :allcount="allcount" :nowpage="nowpage" :pagesize="pagesize" @nextpage="nextpage"></page>
-    </div>
+  
   </div>
 </template>
 

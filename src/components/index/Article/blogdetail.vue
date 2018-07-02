@@ -19,6 +19,10 @@
             </div>        
           </div>
         </div>
+        <div>
+            <span>上一篇:<span v-if="uptitle!='无'"  @click="scrollup">《{{uptitle}}》</span><span v-else>无</span></span>
+            <span style="float:right">下一篇:<span v-if="nexttitle!='无'"  @click="scrollnext">《{{nexttitle}}》</span><span v-else>无</span></span>
+        </div>
         <div class="ui comments">
           <h3 class="ui dividing header">评论区</h3>
           <div class="ui comments">
@@ -52,7 +56,9 @@ export default {
              content:""
            },
            isSupport:true,
-           disSupport:false      
+           disSupport:false   ,
+           nexttitle:'',
+           uptitle:''
        }
     },
     components:{VueEditor},
@@ -70,6 +76,20 @@ export default {
                   })
                 this.blog=data.data
                 this.$loading(false)
+                this.http.get('blog/nextblog/'+this.$route.params.id)
+                    .then(res=>{
+                        if(res.data.err)
+                            this.nexttitle="无"
+                        else
+                            this.nexttitle=res.data[0].title
+                    })
+                this.http.get('blog/upblog/'+this.$route.params.id)
+                    .then(res=>{
+                        if(res.data.err)
+                            this.uptitle="无"
+                        else
+                            this.uptitle=res.data[0].title
+                    })
             })
         },
         supportA(){
@@ -94,6 +114,36 @@ export default {
         },
         formReload(){
           this.init()
+        },
+        scrollup(){
+             if(this.uptitle!='无'){
+                this.http.get('blog/upblog/'+this.$route.params.id)
+                .then(res=>{
+                    if(!res.data.err){
+                      this.$router.push({path:'/article/'+res.data[0]._id})
+                      this.init()
+                    }
+                    else{
+                        this.uptitle="无"
+                    }
+                })
+            }
+
+        },
+        scrollnext(){
+            if(this.nexttitle!='无'){
+                this.http.get('blog/nextblog/'+this.$route.params.id)
+                .then(res=>{
+                    if(!res.data.err){
+                      this.$router.push({path:'/article/'+res.data[0]._id})
+                      this.init()
+                    }
+                    else{
+                        this.nexttitle="无"
+                    }
+                })
+            }
+
         }
        
       

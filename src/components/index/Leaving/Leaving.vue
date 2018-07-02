@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="ui comments">
-      <h3 class="ui dividing header">留言区</h3>
+      <h3 class="ui dividing header">Leave a message for me</h3>
       <div class="ui comments">
          <text-item 
              v-for="(msg,index) in messages" 
