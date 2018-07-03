@@ -49,7 +49,6 @@ export default {
             this.$emit('reload',true)
         },
         addlike(){
-          console.log(this.like)
           if(this.like>1){
              this.Base.messageBox({msg:{error:"您已赞过!"},status:"error"})
           }else{

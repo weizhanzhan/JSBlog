@@ -27,7 +27,6 @@ import { VueEditor, Quill } from 'vue2-editor'
 import DateFormat from "../static/js/Dateformat.js"
 import Base from "../static/js/base.js"
 
-console.log(Base)
 Vue.prototype.Base=Base
  
 
@@ -35,7 +34,7 @@ Vue.prototype.Base=Base
 
 
 
-axios.defaults.baseURL="http://localhost:5000/api";
+axios.defaults.baseURL="http://111.231.59.56:5000/api";
 Vue.prototype.http=axios
 
 Vue.prototype.$loading=state=>{

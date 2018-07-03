@@ -76,19 +76,25 @@ export default {
             return this.$store.state.loading
         }
     },
+    watch:{
+        '$route'(val){        
+            this.mouseout(0)
+            this.mouseover(0)
+            this.changeTap()
+        }
+    },
     methods:{
             select(val,name){
                 this.selectTap=val
                 this.$router.push({name:name})
             },
             mouseout(val){
-                this.mouseId=val
+                this.mouseId=0
             },
             mouseover(val){
                 this.mouseId=val
             },
             changeTap(){
-                console.log(this.$route.path)
                 switch(this.$route.path){
                     case '/article':
                          this.selectTap=1;

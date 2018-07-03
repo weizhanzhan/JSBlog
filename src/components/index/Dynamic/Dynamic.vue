@@ -99,7 +99,7 @@
                 formData.append('title', this.title)
                 formData.append('content', this.content)
                 $.ajax({
-                    url: 'http://localhost:5000/upload',
+                    url: 'http://111.231.59.56:5000/api/upload',
                     type: 'POST',
                     data: formData,
                     // async: false,

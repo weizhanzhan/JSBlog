@@ -13,7 +13,6 @@ export default Store= new Vuex.Store({
       },
       mutations: {
         addalert(state,data){
-            console.log(data)
             state.alertstatus=data.status
             for(var key in data.msg){
               state.alert.push(data.msg[key])             
