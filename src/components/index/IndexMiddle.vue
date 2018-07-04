@@ -11,7 +11,7 @@
                        </a>
                     </div>
                     <div class="main-top-right">
-                        <div class="top-title">贪恋你全部</div>
+                        <div class="top-title">魏展展</div>
                         <div class="top-info">                                     
                             <div v-for="(i,index) in info" class="meta-block" :key="index">
                                 <span class="top-info-text" v-html="i.text"></span>
@@ -118,6 +118,21 @@ export default {
 }
 </script>
 <style>
+.ui.segment{
+    background: beige
+}
+.form-control{
+    background:beige
+}
+.ui.menu{
+   background:beige
+}
+.ui.form input:not([type]){
+   background:beige
+}
+.ui.form textarea{
+    background:beige
+}
 .bounce-enter-active {
   animation: bounce-in .5s;
 }

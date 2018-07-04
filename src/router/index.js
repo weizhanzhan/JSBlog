@@ -14,4 +14,4 @@ export default[
     ],redirect:"/article"},
    
     {path:'*',redirect:'/index'}
-]
+] 

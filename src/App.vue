@@ -5,7 +5,7 @@
     <router-view></router-view>
     <foorter></foorter>
   </div>
-</template>
+</template> 
 
 <script>
 import IndexHeader from './components/index/IndexHeader'
@@ -18,7 +18,17 @@ export default {
 }
 </script>
 
-<style scoped>
- 
+<style >
+ a{
+     color: black
+ }
+ body{
+     background-image: url('http://111.231.59.56/bgimg.jpg');
+      background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat
+
+ }
 
 </style>

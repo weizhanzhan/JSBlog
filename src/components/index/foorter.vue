@@ -22,6 +22,6 @@ export default {
  .foorter p{
     font-size: 14px;
     line-height: 20px;
-    color: #a6abb2;
+    color:brown;
  }
 </style>

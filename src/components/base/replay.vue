@@ -95,4 +95,7 @@ export default {
     margin-top: 10px;
     border-bottom:1px solid #D8BFD8
 }
+.alert-secondary{
+  background: rosybrown
+}
 </style>
