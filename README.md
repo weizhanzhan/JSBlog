@@ -1,5 +1,5 @@
 # wz-blog
-
+项目初版已经上线 地址http://111.231.59.56/jsblog/index.html  后期待完善
 > blog
 
 ## Build Setup
