@@ -20,8 +20,8 @@
           </div>
         </div>
         <div>
-            <span>上一篇:<span v-if="uptitle!='无'"  @click="scrollup">《{{uptitle}}》</span><span v-else>无</span></span>
-            <span style="float:right">下一篇:<span v-if="nexttitle!='无'"  @click="scrollnext">《{{nexttitle}}》</span><span v-else>无</span></span>
+            <span>上一篇:<a href="#" v-if="uptitle!='无'"  @click="scrollup">《{{uptitle}}》</a><span v-else>无</span></span>
+            <span style="float:right">下一篇:<a href="#" v-if="nexttitle!='无'"  @click="scrollnext">《{{nexttitle}}》</a><span v-else>无</span></span>
         </div>
         <div class="ui comments">
           <h3 class="ui dividing header">评论区</h3>
@@ -63,8 +63,15 @@ export default {
     },
     components:{VueEditor},
     created(){
+        
         this.$loading(false)
         this.init()
+    },
+    watch:{
+        "$route"(){
+            this.isSupport=true,
+            this.disSupport=false
+        }
     },
     methods:{
         init(){

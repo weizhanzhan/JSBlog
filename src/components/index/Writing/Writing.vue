@@ -9,6 +9,16 @@
         <label for="exampleInputPassword1">Author</label>
         <input  class="form-control" id="Author" v-model="article.author" placeholder="Author">
       </div>
+      <div class="form-group">
+            <label for="exampleFormControlSelect1">Categories</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option>Vue.js</option>
+                <option>React.js</option>
+                <option>Angular</option>
+                <option>Pythos</option>
+                <option>Html5</option>
+            </select>
+        </div>
       <modal :types="check"></modal>
       <vue-editor v-model="article.content"></vue-editor>
       <button  class="btn btn-primary" @click="submit">提交</button>

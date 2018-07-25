@@ -47,7 +47,7 @@ Vue.use(VueRouter)
 /* eslint-disable no-new */
 const router=new VueRouter({
    routes:Routes,
-   mode:'history',
+ //  mode:'history',
    scrollBehavior (to, from, savedPosition) {
     //  if(to.name=="文章详情"&&from.name=="文章"){
     //    console.log("icoming")
@@ -59,6 +59,14 @@ const router=new VueRouter({
 Vue.directive('date', function (el, binding) {
   el.innerHTML=new Date(binding.value.date).Format("yyyy-MM-dd hh:mm:ss")
 })
+Vue.directive('content', function (el, binding) {
+    let val=binding.value
+    val=val.replace(/<[^>]+>/g,"")
+    val=val.replace(/&nbsp;/gi,'')
+    val=val.replace(/&gt;/gi,'')
+    val=val.replace(/&lt;/gi,'')
+    el.innerHTML= val.slice(0,50)+"...."
+  })
 new Vue({
   el: '#app',
   components: { App },

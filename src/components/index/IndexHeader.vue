@@ -9,7 +9,7 @@
         <nav class="my-2 my-md-0 mr-md-3">
             <a class="p-2 text-dark" href="https://github.com/weizhanzhan" ><i class="large github icon" ></i></a>
             <a class="p-2 text-dark"  title="QQ:675398552" ><i class="large qq icon"></i></a>
-            <a class="p-2 text-dark" @click="goinfo"><i class="large child icon"></i></a>
+            <a class="p-2 text-dark" href="#" @click="goinfo"><i class="large child icon"></i></a>
             
         </nav>
     </div>

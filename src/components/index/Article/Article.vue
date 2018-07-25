@@ -14,8 +14,9 @@
                     </div>
                 </div>
                 <a href="#" @click="goDetail(blog._id)">
-                    <a class="node-list-title">{{blog.title}}</a>       
-                    <p class="abstract" style="height:50px; overflow: hidden;" v-html="blog.content"> </p>
+                    <a class="node-list-title">{{blog.title}}</a>   
+                        <!-- //{test(blog.content)} -->
+                    <p class="abstract" style="height:50px; overflow: hidden;" v-content="blog.content" ></p>
                 </a>
                 <div class="node-list-meta">
                     <span class="list-meta-i"><i class="unhide icon"></i>{{blog.views}}</span>
@@ -69,6 +70,15 @@ export default {
         nextpage(next){
            this.nowpage=next;
            this.init()
+        },
+        test(data){
+            var newtxt=data
+            data=data.replace(/<[^>]+>/g,"")
+            data=data.replace(/&nbsp;/gi,'')
+            data=data.replace(/&gt;/gi,'')
+            data=data.replace(/&lt;/gi,'')
+            //.replace(/<[^>]+>/g,"")
+            return data
         }
     }
 }

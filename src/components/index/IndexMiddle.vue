@@ -41,9 +41,32 @@
                         </transition> 
                     </div>
                 </div>  
-          </div>
+               </div>
             </div>
-
+            <div class="classify">
+                  <a class="ui teal  tag label calssify-title">Blog Category</a>
+                 <div class="calssify-list">                                  
+                    <!-- <div class="ui bottom attached active tab segment " style="border-radius: .28571429rem;">                   
+                     <div class="ui middle aligned animated list">
+                        <a class="item" v-for="(item,index) in classify" :key="index">                           
+                            <img class="ui avatar image" :src="item.imgUrl">
+                            <div class="content">
+                            <div class="header"><a>{{item.text}}</a></div>
+                            </div>                     
+                        </a>                   
+                    </div>
+                </div>   -->
+               
+                <div class="ui middle aligned animated list">
+                        <a class="item" v-for="(item,index) in classify" :key="index">                           
+                            <img class="ui avatar image" :src="item.imgUrl">
+                            <div class="content">
+                            <div class="header"><a>{{item.text}}(10)</a></div>
+                            </div>                     
+                        </a>                   
+                    </div>
+                </div>
+            </div>
         </div>         
     </div>  
   </div>
@@ -66,6 +89,15 @@ export default {
                 {text:'个人',pid:2,pic:require('./img/dongtai.png')},
                 {text:'留言',pid:3,pic:require('./img/newpinglun.png')},
                 {text:'写博客',pid:4,pic:require('./img/wenzhang.png')}
+            ],
+            classify:[
+                {imgUrl:"http://111.231.59.56:5000/images/classify/vue.png",text:"Vue.js"},
+                {imgUrl:"http://111.231.59.56:5000/images/classify/react.png",text:"React.js"},
+                {imgUrl:"http://111.231.59.56:5000/images/classify/pic_html5.gif",text:"H5"},
+                {imgUrl:"http://111.231.59.56:5000/images/classify/js.jpg",text:"JavaScript"},
+                {imgUrl:"http://111.231.59.56:5000/images/classify/nodejs.jpg",text:"Node.js"},
+                {imgUrl:"http://111.231.59.56:5000/images/classify/angular.jpg",text:"Angular.js"},
+                {imgUrl:"http://111.231.59.56:5000/images/classify/python.jpg",text:"Python"},
             ],
             selectTap:1,
             mouseId:'',
@@ -287,5 +319,18 @@ export default {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+.classify{
+    flex: 1;
+    
+}
+.calssify-title{
+    position: absolute;
+    top:160px;
+    left: 30px;
+}
+.calssify-list{
+    margin-top: 55%;
+    margin-left:23%
 }
 </style>

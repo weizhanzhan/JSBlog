@@ -23,7 +23,7 @@ export default Store= new Vuex.Store({
                   if(state.alert.length==0)
                      clearInterval(inter)
                 },400)
-             },3000)
+             },5000)
         }, 
         load(state,data){
           state.loading=data

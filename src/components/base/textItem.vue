@@ -8,7 +8,7 @@
           <div class="metadata">
             <span class="date" v-date="{date:obj.date}"></span>
           </div>
-          <div class="text">{{obj.content}}</div>
+          <div class="text" style="font-size:0.8em">{{obj.content}}</div>
           <div class="actions">
             <a class="reply" @click="showRep(obj)" >Reply({{obj.replay.length}})</a>
             <a class="reply" @click="addlike"><i class="thumbs outline up icon" ></i>{{obj.likes}}</a>

@@ -1,7 +1,7 @@
 <template>
  
    <div>
-     <div v-show="$store.state.alert.length!=0" 
+     <!-- <div v-show="$store.state.alert.length!=0" 
           v-for="(text,index) in $store.state.alert" 
           :key="index"  
           :style="alertStyle(index)">        
@@ -13,7 +13,25 @@
           <i class="close icon"></i>
           <div class="header">{{text}} </div>
         </div>      
-    </div>   
+    </div>   -->
+    <div   v-show="$store.state.alert.length!=0" 
+          v-for="(text,index) in $store.state.alert" 
+          :key="index"  
+          :style="alertStyle(index)">
+          <div class="ui cards">
+       <div class="card">
+            <div class="content shadow">
+             <div v-show="status=='success'" >              
+                 <div class="header" ><i class="info green icon"></i> {{text}} </div>   
+             </div>     
+             <div v-show="status=='error'" >       
+               
+                <div class="header"> <i class="warning red sign icon"></i>{{text}} </div>
+             </div>  
+            </div>
+        </div>
+          </div>
+     </div> 
    </div>   
 </template>
 
@@ -36,7 +54,8 @@ export default {
            this.alertShow=false
         },
         alertStyle(index){
-           return {'position':'fixed','right':'20px','top':20+index*(1+60)+'px'}
+            console.log(20+index*(1+80)+'px')
+            return {'position':'fixed','right':'20px','top':20+index*(1+60)+'px'}
         }
     }
 
@@ -53,7 +72,13 @@ export default {
 .alert-child{
     position: fixed;
     top:20px;
-    right: 20px;
+    
+    
 
+}
+.shadow{
+    border: 1px solid #696;
+    box-sizing: border-box;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 }
 </style>

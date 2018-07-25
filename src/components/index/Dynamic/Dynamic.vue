@@ -11,7 +11,7 @@
             </div>
             <div class="item">
                 <a class="ui small image">
-                    <img src="https://upload.jianshu.io/users/upload_avatars/11879331/7a968de2-3d8c-46f1-a5ee-74abe239e444?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240">
+                    <img style="border-radius: 50%;" src="https://upload.jianshu.io/users/upload_avatars/11879331/7a968de2-3d8c-46f1-a5ee-74abe239e444?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240">
                 </a>
                 <div class="content">
                     <a class="header">魏展展</a>
