@@ -43,7 +43,7 @@ export default {
         }
     },
     watch:{
-        '$route'(val){      
+        '$route'(val){    
             this.mouseout(0)
             this.mouseover(0)
             this.changeTap()
@@ -62,16 +62,16 @@ export default {
             },
             changeTap(){
                 switch(this.$route.path){
-                    case '/article':
+                    case '/blog':
                          this.selectTap=1;
                          break
-                    case '/dynamic':
+                    case '/info':
                          this.selectTap=2;
                          break
-                    case '/leaving':
+                    case '/message':
                          this.selectTap=3;
                          break
-                    case '/writing':
+                    case '/write':
                          this.selectTap=4;
                          break
                 }

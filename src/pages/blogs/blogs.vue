@@ -18,7 +18,7 @@ export default {
             pagesize:4
         }
     },
-    created(){
+    created(){    
         this.init()
     },
     components:{

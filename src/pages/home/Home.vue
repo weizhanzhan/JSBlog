@@ -1,6 +1,7 @@
 <template>
   <div>      
-      <div class="container">   
+      <div class="container">  
+          
         <div class="row">
             <div class="main">
                 <home-header :info="info"></home-header>
@@ -156,8 +157,8 @@ export default {
     padding: 0 2px 17px 0;
 }
 .wrap-img{
-   flex: 150px 0 0;
-   width: 150px;
+   flex: 120px 0 0;
+   width: 120px;
    height: 120px;
 
 }

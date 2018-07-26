@@ -23,7 +23,8 @@
             </div>   
             <div class="wrap-img">
                 <img class="wrap-image" :src="blog.img" />
-            </div>                           
+            </div> 
+                                    
         </li>
     </ul>
 </template>
@@ -34,6 +35,11 @@ export default {
     name:"blog-list",
     props:{
         blogs:Array
+    },
+    data(){
+        return{
+      
+        }
     },
     methods:{
          goDetail(id){

@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <component-alert ></component-alert>
     <index-header></index-header>
     <router-view></router-view>
@@ -10,10 +11,14 @@
 <script>
 import IndexHeader from './base/IndexHeader'
 import Foorter from './base/foorter'
+
 export default {
   name: 'App',
   components: {
     IndexHeader,Foorter
+  },
+  created(){
+   
   }
 }
 </script>

@@ -14,6 +14,7 @@
          </text-item>
       </div>
       <page :allcount="allcount" :nowpage="nowpage" :pagesize="pagesize" @nextpage="nextpage"></page>
+      <br>
       <text-form url="/message/addmessage" @formReload="formReload"></text-form>
     </div>
   </div>
