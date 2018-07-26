@@ -90,7 +90,6 @@
             }
         },
         methods: {
-
             add() {
                 console.log($('#upload')[0].files[0])
                 let file = $('#upload')[0].files[0];
@@ -117,13 +116,13 @@
             },
         },
         components: {
-
+ 
         }
     }
 </script>
 
 <style scoped>
-    @import '../../../../static/css/index.css';
+    @import '../../../static/css/index.css';
     .side-list{
         display: flex;
         width: 100%;

@@ -8,8 +8,8 @@
 </template> 
 
 <script>
-import IndexHeader from './components/index/IndexHeader'
-import Foorter from './components/index/foorter'
+import IndexHeader from './base/IndexHeader'
+import Foorter from './base/foorter'
 export default {
   name: 'App',
   components: {

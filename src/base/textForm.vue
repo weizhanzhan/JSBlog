@@ -12,14 +12,12 @@
       </form>
     </div>
 </template>
-
 <script>
 import qs from 'qs'
+import { UploadMessage } from '@/api/getData'
 export default {
     props:{
-        url:{
-            type:String
-        }
+        url:String   
     },
     data(){
         return{
@@ -34,7 +32,7 @@ export default {
           newmsg.email=this.email;
           newmsg.content=this.content
           
-          this.http.post(this.url,qs.stringify(newmsg))
+          UploadMessage(this.url,qs.stringify(newmsg))
           .then(res=>{
              this.email="",
              this.content=""

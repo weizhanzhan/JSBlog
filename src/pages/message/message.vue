@@ -20,6 +20,7 @@
 </template>
 <script>
 import qs from "qs"
+import { GetMessage } from '@/api/getData'
 export default {
      data(){
        return{
@@ -37,15 +38,15 @@ export default {
      },
      methods:{
         init(){
-           this.$loading(true)
-          this.http.get('/message?nowpage='+this.nowpage+"&&pagesize="+this.pagesize)
+          this.$loading(true)
+          GetMessage(this.nowpage,this.pagesize)
           .then(msg=>{
             msg.data.msgs.forEach(msg=>{
-              msg.show=false
+               msg.show=false
             })
             this.messages=msg.data.msgs         
             this.allcount=msg.data.count
-             this.$loading(false)
+            this.$loading(false)
           })
         },
         nextpage(next){

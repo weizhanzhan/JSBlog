@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { likes , dislikes } from '@/api/getData'
 export default {
     props:{
         obj:{
@@ -53,9 +54,9 @@ export default {
              this.Base.messageBox({msg:{error:"您已赞过!"},status:"error"})
           }else{
               this.$loading(true)
-              this.http.get(this.likeurl+this.obj._id)//
+              likes(this.likeurl+this.obj._id)//
               .then(res=>{
-                 this.$loading(false)
+                this.$loading(false)
                 this.like++
                 this.Base.messageBox(res.data)
                 this.$emit('reload',true)
@@ -68,7 +69,7 @@ export default {
               this.Base.messageBox({msg:{error:"您已评价过啦!"},status:"error"})
           }else{
               this.$loading(true)
-              this.http.get(this.dislikeurl+this.obj._id)//
+              dislikes(this.dislikeurl+this.obj._id)//
               .then(res=>{
                 this.$loading(false)
                 this.dislike++

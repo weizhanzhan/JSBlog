@@ -1,17 +1,20 @@
-import IndexMiddle from '../components/index/IndexMiddle'
-import Article from '../components/index/Article/Article'
-import Dynamic from '../components/index/Dynamic/Dynamic'
-import Leaving from '../components/index/Leaving/Leaving'
-import Writing from '../components/index/Writing/Writing'
-import blogDetail from "../components/index/Article/blogdetail"
+
+
+import Home from "../pages/home/home"
+import Blog from "../pages/blogs/blogs"
+import Detail from "../pages/detail/detail"
+import Info from "../pages/info/info"
+import Message from "../pages/message/message"
+import Send from "../pages/send/send"
 export default[
-    { path:'/index',name:'主页' ,component:IndexMiddle,children:[
-       { path:'/article',name:'文章',component:Article},
-       { path:'/article/:id',name:'文章详情',component:blogDetail},
-       { path:'/dynamic',name:'个人',component:Dynamic},
-       { path:'/leaving',name:'留言',component:Leaving},
-       { path:'/writing',name:'写博客',component:Writing},
-    ],redirect:"/article"},
-   
+    
+    { path:'/home',name:'主页',component:Home,children:[
+        { path:'/blog',name:'文章',component:Blog},
+        { path:'/blog/:id',name:'文章详情',component:Detail},
+        { path:'/info',name:'个人',component:Info},
+        { path:'/message',name:'留言',component:Message},
+        { path:'/write',name:'写博客',component:Send}
+    ],redirect:"/blog"
+    },
     {path:'*',redirect:'/index'}
 ] 

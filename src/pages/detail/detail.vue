@@ -45,6 +45,7 @@
 
 <script>
 import { VueEditor, Quill } from 'vue2-editor'
+import { GetDetail , GetNext , GetUp , support } from '@/api/getData'
 import qs from 'qs'
 export default {
     data(){
@@ -61,9 +62,10 @@ export default {
            uptitle:''
        }
     },
-    components:{VueEditor},
-    created(){
-        
+    components:{
+      VueEditor    
+    },
+    created(){    
         this.$loading(false)
         this.init()
     },
@@ -76,39 +78,35 @@ export default {
     methods:{
         init(){
             this.$loading(true)
-            this.http.get("/blog/getblog/"+this.$route.params.id)
+            GetDetail(this.$route.params.id)
             .then(data=>{
-                  data.data.comment.forEach(com=>{
-                    com.show=false
-                  })
+                data.data.comment.forEach(com=>{
+                  com.show=false
+                })
                 this.blog=data.data
                 this.$loading(false)
-                this.http.get('blog/nextblog/'+this.$route.params.id)
-                    .then(res=>{
-                        if(res.data.err)
-                            this.nexttitle="无"
-                        else
-                            this.nexttitle=res.data[0].title
-                    })
-                this.http.get('blog/upblog/'+this.$route.params.id)
-                    .then(res=>{
-                        if(res.data.err)
-                            this.uptitle="无"
-                        else
-                            this.uptitle=res.data[0].title
-                    })
+                GetNext(this.$route.params.id)
+                .then(res=>{
+                    if(res.data.err)
+                        this.nexttitle="无"
+                    else
+                        this.nexttitle=res.data[0].title
+                })
+                GetUp(this.$route.params.id)
+                .then(res=>{
+                    if(res.data.err)
+                        this.uptitle="无"
+                    else
+                        this.uptitle=res.data[0].title
+                })
             })
         },
         supportA(){
           this.isSupport=false
           setTimeout(()=>{
              this.disSupport=true
-          },500)   
-          
-          this.http.get("/blog/addLikes/"+this.$route.params.id)
-            .then(res=>{  
-                         
-            }) 
+          },500)          
+          support(this.$route.params.id)
         },
         supportB(){
           this.disSupport=false
@@ -124,30 +122,27 @@ export default {
         },
         scrollup(){
              if(this.uptitle!='无'){
-                this.http.get('blog/upblog/'+this.$route.params.id)
+                GetUp(this.$route.params.id)
                 .then(res=>{
                     if(!res.data.err){
-                      this.$router.push({path:'/article/'+res.data[0]._id})
+                      this.$router.push({path:'/blog/'+res.data[0]._id})
                       this.init()
                     }
-                    else{
-                        this.uptitle="无"
-                    }
+                    else
+                      this.uptitle="无"
                 })
             }
-
         },
         scrollnext(){
             if(this.nexttitle!='无'){
-                this.http.get('blog/nextblog/'+this.$route.params.id)
+                GetNext(this.$route.params.id)
                 .then(res=>{
                     if(!res.data.err){
-                      this.$router.push({path:'/article/'+res.data[0]._id})
+                      this.$router.push({path:'/blog/'+res.data[0]._id})
                       this.init()
                     }
-                    else{
-                        this.nexttitle="无"
-                    }
+                    else
+                      this.nexttitle="无"
                 })
             }
 

@@ -31,6 +31,7 @@
 <script>
 import Vue from "vue"
 import qs from 'qs'
+import { Replay } from '@/api/getData'
 export default {
        props:{
            show:{
@@ -63,7 +64,7 @@ export default {
                    content:this.content,
                    _id:this.show._id
                }
-               this.http.post(this.replyurl,qs.stringify(rep))
+               Replay(this.replyurl,qs.stringify(rep))
                .then(data=>{
                    this.$loading(false)
                    if(data.data.status="success"){
