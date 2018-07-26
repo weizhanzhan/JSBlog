@@ -1,7 +1,5 @@
 <template>
-  <div>
-    
-    <ul class="node-list">
+     <ul class="node-list">
         <li class="list-item" v-for="(blog,index) in blogs" :key="index">              
             <div class="node-content" id="contentWz" >
                 <div class="author">
@@ -15,7 +13,6 @@
                 </div>
                 <a href="#" @click="goDetail(blog._id)">
                     <a class="node-list-title">{{blog.title}}</a>   
-                        <!-- //{test(blog.content)} -->
                     <p class="abstract" style="height:50px; overflow: hidden;" v-content="blog.content" ></p>
                 </a>
                 <div class="node-list-meta">
@@ -26,61 +23,34 @@
             </div>   
             <div class="wrap-img">
                 <img class="wrap-image" :src="blog.img" />
-            </div>                           
+            </div> 
+                                    
         </li>
     </ul>
-    <page :allcount="allcount" :nowpage="nowpage" :pagesize="pagesize" @nextpage="nextpage"></page>
-  
-  </div>
 </template>
 
 <script>
+import { AddViewCounts } from '@/api/getData'
 export default {
+    name:"blog-list",
+    props:{
+        blogs:Array
+    },
     data(){
         return{
-            blogs:[],
-            allcount:0,
-            nowpage:1,
-            pagesize:4
+      
         }
-    },
-    created(){
-        this.init()
     },
     methods:{
-        init(){
+         goDetail(id){
             this.$loading(true)
-            this.http.get("/blog?nowpage="+this.nowpage+"&&pagesize="+this.pagesize)
-            .then(data=>{
-                this.blogs=data.data.blogs,
-                this.allcount=data.data.count
-                this.$loading(false)
-            })
+            AddViewCounts(id)
+                    .then(res=>{
+                        this.$router.push({path:'/blog/'+id})
+                    })        
         },
-        listdate(val){
-            return new Date(val).Format("yyyy-MM-dd hh:mm:ss")
-        },
-        goDetail(id){
-            this.$loading(true)
-            this.http.get("/blog/addViewCount/"+id)
-            .then(res=>{
-                this.$router.push({path:'/article/'+id})
-            })        
-        },
-        nextpage(next){
-           this.nowpage=next;
-           this.init()
-        },
-        test(data){
-            var newtxt=data
-            data=data.replace(/<[^>]+>/g,"")
-            data=data.replace(/&nbsp;/gi,'')
-            data=data.replace(/&gt;/gi,'')
-            data=data.replace(/&lt;/gi,'')
-            //.replace(/<[^>]+>/g,"")
-            return data
-        }
     }
+
 }
 </script>
 

@@ -1,37 +1,23 @@
 <template>
- 
    <div>
-     <!-- <div v-show="$store.state.alert.length!=0" 
+    <div  v-show="$store.state.alert.length!=0" 
           v-for="(text,index) in $store.state.alert" 
           :key="index"  
-          :style="alertStyle(index)">        
-        <div v-show="status=='success'" class="ui success message">       
-          <i class="close icon" @click="close" ></i>
-          <div class="header" > {{text}} </div>   
-        </div>     
-        <div v-show="status=='error'" class="ui negative message">       
-          <i class="close icon"></i>
-          <div class="header">{{text}} </div>
-        </div>      
-    </div>   -->
-    <div   v-show="$store.state.alert.length!=0" 
-          v-for="(text,index) in $store.state.alert" 
-          :key="index"  
-          :style="alertStyle(index)">
-          <div class="ui cards">
-       <div class="card">
+          :style="alertStyle(index)"
+    >
+      <div class="ui cards">
+        <div class="card">
             <div class="content shadow">
              <div v-show="status=='success'" >              
                  <div class="header" ><i class="info green icon"></i> {{text}} </div>   
              </div>     
-             <div v-show="status=='error'" >       
-               
+             <div v-show="status=='error'" >              
                 <div class="header"> <i class="warning red sign icon"></i>{{text}} </div>
              </div>  
             </div>
         </div>
-          </div>
-     </div> 
+      </div>
+    </div> 
    </div>   
 </template>
 
@@ -54,7 +40,6 @@ export default {
            this.alertShow=false
         },
         alertStyle(index){
-            console.log(20+index*(1+80)+'px')
             return {'position':'fixed','right':'20px','top':20+index*(1+60)+'px'}
         }
     }

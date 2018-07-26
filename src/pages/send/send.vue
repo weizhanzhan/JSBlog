@@ -19,7 +19,6 @@
                 <option>Html5</option>
             </select>
         </div>
-      <modal :types="check"></modal>
       <vue-editor v-model="article.content"></vue-editor>
       <button  class="btn btn-primary" @click="submit">提交</button>
     </div>
@@ -27,38 +26,34 @@
 </template>
 
 <script>
-import Modal from '../../base/modal'
 import { VueEditor, Quill } from 'vue2-editor'
+import { UploadBlog } from '@/api/getData'
 import qs from 'qs';
 export default {
     data(){
       return{
-         pwd:'',
-         test:'',
-         check:'',
-         article:{
-           title:'',
-           author:'',
-           content:''
+         pwd : '',
+         test : '',
+         check : '',
+         article : {
+           title : '',
+           author : '',
+           content : ''
          },
          alerttext:""
       }
     },
     methods:{
       submit(){     
-        this.http.post("/blog/addblog",qs.stringify(this.article),{
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        })
+        UploadBlog(qs.stringify(this.article))
         .then(res=>{
           this.Base.messageBox(res.data)
-          // if(res.data.status=="success")
-               this.$router.push({path:"/artice"})   
-                
+          this.$router.push({path:"/blog"})                 
         })           
       },
     },
     components:{
-      Modal,VueEditor
+      VueEditor
     }
 
 }

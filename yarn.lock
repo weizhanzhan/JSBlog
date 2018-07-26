@@ -5426,9 +5426,19 @@ vue2-editor@^2.5.0:
     quill-image-drop-module "^1.0.3"
     quill-image-resize-module "^3.0.0"
 
-vue@^2.5.2:
+vue2-loading-bar@^0.0.1:
+  version "0.0.1"
+  resolved "http://registry.npm.taobao.org/vue2-loading-bar/download/vue2-loading-bar-0.0.1.tgz#5fec3acaa07e4d9dabf10b769b1c3ad5a3018787"
+  dependencies:
+    vue ""
+
+vue@, vue@^2.5.2:
   version "2.5.16"
   resolved "http://r.cnpmjs.org/vue/download/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
+
+vueLoadingBar@^1.1.5:
+  version "1.1.5"
+  resolved "http://registry.npm.taobao.org/vueLoadingBar/download/vueLoadingBar-1.1.5.tgz#1fc8a1a7cc1ff742f5e7210e525dafeec5388b0f"
 
 vuex@^3.0.1:
   version "3.0.1"
