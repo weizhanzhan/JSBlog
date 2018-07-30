@@ -26,7 +26,6 @@ Vue.component('text-form',TextForm)
 Vue.prototype.topbar=topbar
 
 import { VueEditor, Quill } from 'vue2-editor'
-
 import DateFormat from "../static/js/Dateformat.js"
 import Base from "../static/js/base.js"
 import { GetNext } from './api/getData';
@@ -34,7 +33,8 @@ import { GetNext } from './api/getData';
 Vue.prototype.Base=Base
  
 
-axios.defaults.baseURL="http://111.231.59.56:5000/api";
+// axios.defaults.baseURL="http://111.231.59.56:5000/api";
+axios.defaults.baseURL="http://localhost:5000/api";
 Vue.prototype.http=axios
 
 Vue.prototype.$loading=state=>{

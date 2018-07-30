@@ -14,7 +14,7 @@ export default[
         { path:'/info',name:'个人',component:Info},
         { path:'/message',name:'留言',component:Message},
         { path:'/write',name:'写博客',component:Send}
-    ],redirect:"/blog"
+     ],redirect:"/blog"
     },
-    {path:'*',redirect:'/index'}
+    {path:'*',redirect:'/home'}
 ] 
