@@ -9,13 +9,15 @@
                @mousemove="changeSelectTheme(theme.value)"
                @mouseout="closeSelectTheme(theme.value)" 
                :key="index"
+               @click="changeThemeNum(theme.value)"
          >
-           <a href="">{{theme.title}}</a>
+           <a href="#">{{theme.title}}</a>
          </div>
     </div>
 </template>
 
 <script>
+import {  mapMutations } from 'vuex'
 export default {
     props:['isShowTheme',],
     data(){
@@ -40,6 +42,10 @@ export default {
          },
          closeSelectTheme(){
              this.selectId=""
+         },
+         ...mapMutations(['changeCssNum']),
+         changeThemeNum(val){
+            this.changeCssNum(val)
          }
     }
 }
@@ -50,7 +56,7 @@ export default {
     background: #caced7
 }
 .theme-info{
-    position: fixed;
+    position: absolute;
     right: 10px;
     top: 50px;    
     width: 100px;
@@ -58,7 +64,6 @@ export default {
     border-radius: 8px;
 }
 .theme-item{
-  padding: 10px;
   border-bottom: 1px solid #eee
 }
 </style>

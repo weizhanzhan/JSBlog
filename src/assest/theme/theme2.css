@@ -1,0 +1,10 @@
+.theme-bg2{
+   background-image: url('http://111.231.59.56/bgimg.jpg');
+   background-size: cover;
+   background-position: center;
+   background-attachment: fixed; 
+   background-repeat: no-repeat
+}
+.theme-header2{
+    border-bottom: 1px solid #eee
+}

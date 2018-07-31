@@ -1,7 +1,6 @@
 <template>
   <div>      
-      <div class="container">  
-          
+      <div class="container">          
         <div class="row">
             <div class="main">
                 <home-header :info="info"></home-header>
@@ -53,21 +52,21 @@ export default {
 }
 </script>
 <style>
-.ui.segment{
-    background: beige
+/* .ui.segment{
+    background: gainsboro
 }
 .form-control{
-    background:beige
+    background:gainsboro
 }
 .ui.menu{
-   background:beige
+   background:gainsboro
 }
 .ui.form input:not([type]){
-   background:beige
+   background:gainsboro
 }
 .ui.form textarea{
-    background:beige
-}
+    background:gainsboro
+} */
 .bounce-enter-active {
   animation: bounce-in .5s;
 }
@@ -93,12 +92,14 @@ export default {
 }
 .main{
     flex:0 0 66.66%;
+    margin-top:20px;
     width: 80px;
 }
 .aside{
     flex: 1
 }
 .main-top{
+    margin-top:20px;
     display: flex;
 }
 .main-top-left{

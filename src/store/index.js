@@ -6,12 +6,17 @@ export default Store= new Vuex.Store({
       state: {
         alert:[],
         alertstatus:'',
-        loading:false
+        loading:false,
+
+        cssNum:1 //全局样式编号
       },
       getters:{
 
       },
       mutations: {
+        changeCssNum(state,data){
+            state.cssNum=data
+        },
         addalert(state,data){
             state.alertstatus=data.status
             for(var key in data.msg){

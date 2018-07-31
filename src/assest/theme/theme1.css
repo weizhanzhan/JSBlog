@@ -1,0 +1,23 @@
+.theme-bg1{
+  background : #e8e9ed
+}
+.theme-header1{
+  background: gainsboro;
+  box-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
+.theme-segment1{
+  background: gainsboro !important
+}
+.theme-footer1{
+  color: steelblue;
+  min-height: 40px;
+  border-top: 2px solid gainsboro;
+  padding: 20px 0;
+  margin-top: 20px;
+  text-align: center;
+}
+.theme-footer1 p{
+  font-size: 14px;
+  line-height: 20px;
+  
+}

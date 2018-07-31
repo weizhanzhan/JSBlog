@@ -1,5 +1,5 @@
 <template>
-  <div id="app"  :class="true? 'theme'+num :''">
+  <div id="app"  :class="['theme-bg'+cssNum]">
     <component-alert ></component-alert>
     <index-header></index-header>
     <router-view></router-view>
@@ -10,42 +10,23 @@
 <script>
 import IndexHeader from './base/IndexHeader'
 import Foorter from './base/foorter'
-
+import { mapState } from 'vuex'
 export default {
   name: 'App', 
   components: {
     IndexHeader,Foorter
   },
-  data(){
-    return{
-      num:1
-    }
-  },
-  created(){
-   
-  },
-  methods:{
-   
-  },
   computed:{
-      th(){
-      return{
-         "background":"red"
-      }
-    }
+      ...mapState(['cssNum'])
   }
 }
 </script>
 
 <style lang="stylus">
  @import "./assest/css/varibles.styl"
+ @import "./assest/theme/theme1.css"
+ @import "./assest/theme/theme2.css"
+ @import "./assest/theme/theme3.css"
  a
    color: black
- .theme1
-   background #e8e9ed
-   //background-image: url('http://111.231.59.56/bgimg.jpg');
-   background-size: cover;
-   background-position: center;
-   background-attachment: fixed; 
-   background-repeat: no-repeat
 </style>

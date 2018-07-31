@@ -8,7 +8,7 @@
                         <img style="width:1.2rem" :src="tap.pic" />&nbsp;&nbsp;{{tap.text}} 
                 </a>                                           
             </div>           
-            <div class="ui segment">
+            <div class="ui segment" :class="['theme-segment'+cssNum]" >
                 <div class="ui active inverted dimmer" v-show="loading">
                 <div class="ui text loader">加载</div>
                 </div>
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
     name:"home-content",
     props:{
@@ -40,7 +41,8 @@ export default {
     computed:{
         loading(){
             return this.$store.state.loading
-        }
+        },
+        ...mapState(['cssNum'])
     },
     watch:{
         '$route'(val){    
