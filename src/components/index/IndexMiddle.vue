@@ -181,9 +181,7 @@ export default {
     transform: scale(1);
   }
 }
-.container{
 
-}
 .row{
     margin: 0 auto;
     display: flex;
