@@ -43,6 +43,11 @@ export default {
          alerttext:""
       }
     },
+    watch:{
+       '$route'(){
+                console.log(3434)
+            }
+    },
     methods:{
       submit(){     
         UploadBlog(qs.stringify(this.article))

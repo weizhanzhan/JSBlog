@@ -16,6 +16,10 @@
   margin-top: 20px;
   text-align: center;
 }
+.alert-secondary1{
+  background: lightgray;
+  box-shadow: 0 1px 3px rgba(0,0,0,.3);
+}
 .theme-footer1 p{
   font-size: 14px;
   line-height: 20px;

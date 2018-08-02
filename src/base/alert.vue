@@ -40,7 +40,7 @@ export default {
            this.alertShow=false
         },
         alertStyle(index){
-            return {'position':'fixed','right':'20px','top':20+index*(1+60)+'px'}
+            return {'position':'fixed','left':'20px','top':50+index*(1+60)+'px'}
         }
     }
 

@@ -1,6 +1,27 @@
 .theme-bg3{
-    background : skyblue;
+    /* background : skyblue; */
+    background-image: url('../img/theme3bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; 
+    background-repeat: no-repeat
 }
 .theme-header3{
-    background: lightseagreen
+    /* background: lightseagreen */
+    box-shadow: 0 1px 3px rgba(0,0,0,.3);
  }
+ .theme-segment3{
+    background: unset !important
+  }
+ .theme-footer3{
+    color: #fff;
+    min-height: 40px;
+    border-top: 1px solid gainsboro;
+    padding: 20px 0;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .alert-secondary3{
+    background: unset;
+    box-shadow: 0 1px 3px rgba(0,0,0,.3);
+  }

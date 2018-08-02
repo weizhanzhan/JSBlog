@@ -17,7 +17,7 @@
             </a>   
         </nav>       -->
         <div class="header">
-          <h5 class="header-left">ZhanWei</h5>
+          <h5 class="header-left"><img src="@/assest/img/logo.png" width="150px"></h5>
           <div class="header-right"> 
               <a class="header-list" href="https://github.com/weizhanzhan" ><i class="large github icon" ></i></a>
               <a class="header-list" title="QQ:675398552" href="#" ><i class="large blue qq icon"></i></a>

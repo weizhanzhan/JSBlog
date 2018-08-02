@@ -1,7 +1,7 @@
 <template>
 <transition name="fade">
     <div v-show="isshow" >      
-       <div class="alert alert-secondary" role="alert">
+       <div class="alert" :class="['alert-secondary'+cssNum]" role="alert">
         <form>
             <ul>
                <li v-for="(rep,index) in show.replay" :key="index" class="list-li">
@@ -32,6 +32,7 @@
 import Vue from "vue"
 import qs from 'qs'
 import { Replay } from '@/api/getData'
+import { mapState } from 'vuex'
 export default {
        props:{
            show:{
@@ -52,6 +53,9 @@ export default {
            'show.show'(val){
                this.isshow=val
            }
+       },
+       computed:{
+        ...mapState(['cssNum'])
        },
        methods:{
            back(){

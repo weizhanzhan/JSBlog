@@ -89,6 +89,11 @@
                 content: ""
             }
         },
+        watch:{
+            '$route'(){
+                console.log(123232)
+            }
+        },
         methods: {
             add() {
                 console.log($('#upload')[0].files[0])

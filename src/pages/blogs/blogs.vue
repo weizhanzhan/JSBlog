@@ -1,6 +1,7 @@
 <template>
   <div>
     <blog-list :blogs="blogs"></blog-list>
+    <br>
     <page :allcount="allcount" :nowpage="nowpage" :pagesize="pagesize" @nextpage="nextpage"></page>
   </div>
 </template>

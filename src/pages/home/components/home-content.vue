@@ -9,7 +9,7 @@
                 </a>                                           
             </div>           
             <div class="ui segment" :class="['theme-segment'+cssNum]" >
-                <div class="ui active inverted dimmer" v-show="loading">
+                <div class="ui active inverted dimmer" style="background-color:unset" v-show="loading">
                 <div class="ui text loader">加载</div>
                 </div>
                 <p></p>
@@ -45,7 +45,7 @@ export default {
         ...mapState(['cssNum'])
     },
     watch:{
-        '$route'(val){    
+        '$route'(val){   
             this.mouseout(0)
             this.mouseover(0)
             this.changeTap()

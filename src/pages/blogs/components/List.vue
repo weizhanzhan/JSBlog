@@ -15,10 +15,10 @@
                     <a class="node-list-title">{{blog.title}}</a>   
                     <p class="abstract" style="height:50px; overflow: hidden;" v-content="blog.content" ></p>
                 </a>
-                <div class="node-list-meta">
-                    <span class="list-meta-i"><i class="unhide icon"></i>{{blog.views}}</span>
-                    <span class="list-meta-i"><i class="talk outline icon"></i>{{blog.comment.length}}</span>
-                    <span class="list-meta-i"><i class="heart icon"></i>{{blog.likes}}</span>
+                <div class="node-list-meta" >
+                    <span class="list-meta-i" style="color:black"><i class="unhide white icon"></i>{{blog.views}}</span>
+                    <span class="list-meta-i" style="color:black"><i class="talk outline icon"></i>{{blog.comment.length}}</span>
+                    <span class="list-meta-i" style="color:black"><i class="heart icon"></i>{{blog.likes}}</span>
                 </div>                        
             </div>   
             <div class="wrap-img">
