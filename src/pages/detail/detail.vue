@@ -76,30 +76,31 @@ export default {
         }
     },
     methods:{
-        init(){
+       async init(){
             this.$loading(true)
-            GetDetail(this.$route.params.id)
+            await GetDetail(this.$route.params.id)
             .then(data=>{
                 data.data.comment.forEach(com=>{
                   com.show=false
                 })
                 this.blog=data.data
                 this.$loading(false)
-                GetNext(this.$route.params.id)
+            }) 
+            await GetNext(this.$route.params.id)
                 .then(res=>{
                     if(res.data.err)
                         this.nexttitle="无"
                     else
                         this.nexttitle=res.data[0].title
-                })
-                GetUp(this.$route.params.id)
+                })         
+             await GetUp(this.$route.params.id)
                 .then(res=>{
                     if(res.data.err)
                         this.uptitle="无"
                     else
                         this.uptitle=res.data[0].title
                 })
-            })
+           
         },
         supportA(){
           this.isSupport=false

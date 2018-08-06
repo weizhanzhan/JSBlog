@@ -1,6 +1,6 @@
 <template>
   <div>
-    <blog-list :blogs="blogs"></blog-list>
+    <blog-list :blogs="Blogs"></blog-list>
     <br>
     <page :allcount="allcount" :nowpage="nowpage" :pagesize="pagesize" @nextpage="nextpage"></page>
   </div>
@@ -8,15 +8,14 @@
 
 <script>
 import BlogList from './components/list'
-import { GetBlogs} from '@/api/getData'
+import { GetBlogs , getBlogByCategory } from '@/api/getData'
+import { mapState } from 'vuex'
 export default {
     name:"blog",
     data(){
         return{
             blogs:[],
-            allcount:0,
-            nowpage:1,
-            pagesize:4
+            
         }
     },
     created(){    
@@ -25,18 +24,26 @@ export default {
     components:{
         BlogList
     },
+    computed:{
+        ...mapState(['Blogs']),
+        ...mapState(['nowpage']),
+        ...mapState(['pagesize']),
+        ...mapState(['allcount'])
+    },
     methods:{
         init(){
             this.$loading(true)
-            GetBlogs(this.nowpage,this.pagesize)
-            .then(data=>{
-                this.blogs=data.data.blogs,
-                this.allcount=data.data.count
-                this.$loading(false)
-            })
+            this.$store.dispatch('getBlogs')
+            this.$loading(false)
+            // getBlogByCategory('',this.nowpage,this.pagesize)
+            // .then(data=>{
+            //     this.blogs=data.data.blogs,
+            //     this.allcount=data.data.count
+            //     this.$loading(false)
+            // })
         },     
         nextpage(next){
-           this.nowpage=next;
+           //this.nowpage=next;
            this.init()
         }
     }

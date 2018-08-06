@@ -17,6 +17,7 @@
 import HomeHeader from './components/home-header.vue'
 import HomeContent from './components/home-content.vue'
 import HomeClassify from './components/home-classify.vue'
+import { getCategories } from '@/api/getData'
 export default {
     data(){
         return{
@@ -33,22 +34,29 @@ export default {
                 {text:'留言',pid:3,pic:require('../../assest/img/newpinglun.png')},
                 {text:'写博客',pid:4,pic:require('../../assest/img/wenzhang.png')}
             ],
-            classify:[
-                {imgUrl:"http://111.231.59.56:5000/images/classify/vue.png",text:"Vue.js"},
-                {imgUrl:"http://111.231.59.56:5000/images/classify/react.png",text:"React.js"},
-                {imgUrl:"http://111.231.59.56:5000/images/classify/pic_html5.gif",text:"H5"},
-                {imgUrl:"http://111.231.59.56:5000/images/classify/js.jpg",text:"JavaScript"},
-                {imgUrl:"http://111.231.59.56:5000/images/classify/nodejs.jpg",text:"Node.js"},
-                {imgUrl:"http://111.231.59.56:5000/images/classify/angular.jpg",text:"Angular.js"},
-                {imgUrl:"http://111.231.59.56:5000/images/classify/python.jpg",text:"Python"},
-            ],    
+            classify:[]
+            // classify:[
+            //     {imgUrl:"http://111.231.59.56:5000/images/classify/vue.png",text:"Vue.js"},
+            //     {imgUrl:"http://111.231.59.56:5000/images/classify/react.png",text:"React.js"},
+            //     {imgUrl:"http://111.231.59.56:5000/images/classify/pic_html5.gif",text:"H5"},
+            //     {imgUrl:"http://111.231.59.56:5000/images/classify/js.jpg",text:"JavaScript"},
+            //     {imgUrl:"http://111.231.59.56:5000/images/classify/nodejs.jpg",text:"Node.js"},
+            //     {imgUrl:"http://111.231.59.56:5000/images/classify/angular.jpg",text:"Angular.js"},
+            //     {imgUrl:"http://111.231.59.56:5000/images/classify/python.jpg",text:"Python"},
+            // ],    
         }
     },
     components:{
         HomeHeader,
         HomeContent,
         HomeClassify
-    },   
+    }, 
+    mounted(){
+       getCategories().then(data=>{
+           console.log(123,data)
+           this.classify=data.data
+       })
+    }  
 }
 </script>
 <style>

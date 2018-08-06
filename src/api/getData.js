@@ -35,3 +35,9 @@ export const UploadMessage =(url,data)=>axios.post(url,data)
 
 /* 评论和留言回复 */
 export const Replay =(url,data)=>axios.post(url,data)
+
+/* 获取博客分类 */
+export const getCategories=()=>axios.get('/categories')
+
+/* 分类获取博客 */
+export const getBlogByCategory=(category,nowpage,pagesize)=>axios.get('/blog/'+category+'?nowpage='+nowpage+'&&pagesize='+pagesize)

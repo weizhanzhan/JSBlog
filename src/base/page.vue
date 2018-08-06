@@ -6,7 +6,7 @@
                 <a class="icon item" @click="up">
                    <i class="left chevron icon"></i>
                 </a>
-                <a :class="{'item':true,'active':inpage==count}"
+                <a :class="{'item':true,'active':nowpage==count}"
                    v-for="(count,index) in pagecount" 
                    :key="index"
                    @click="changepage(count)"
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { mapMutations} from 'vuex'
 export default {
     props:{
         allcount:{
@@ -48,27 +49,30 @@ export default {
     },
     methods:{
         next(){                  
-            if(this.inpage>=this.pagecount){               
+            if(this.nowpage>=this.pagecount){               
                 this.Base.messageBox({msg:{error:"已到达末页!"},status:"error"})
             }else{
-                 this.inpage++
-                this.$emit('nextpage',this.inpage)
+                 this.nextPage()
+                 this.$emit('nextpage',this.inpage)
             }
         },
         up(){                       
-            if(this.inpage<=1){
-                this.inpage=1
+            if(this.nowpage<=1){
+                this.changePageNum(1)
                 this.Base.messageBox({msg:{error:"初始页!"},status:"error"})
             }else{
-                this.inpage--
+                this.upPage()
                 this.$emit('nextpage',this.inpage)
             }                
         },
         changepage(num){
-             this.inpage=num
+             this.changePageNum(num)
              this.$emit('nextpage',num)
 
-        }
+        },
+        ...mapMutations(['changePageNum']),
+        ...mapMutations(['upPage']),
+        ...mapMutations(['nextPage']),
     }
 
 }

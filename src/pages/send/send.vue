@@ -11,12 +11,14 @@
       </div>
       <div class="form-group">
             <label for="exampleFormControlSelect1">Categories</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <select class="form-control" id="exampleFormControlSelect1" v-model="article.classify">
                 <option>Vue.js</option>
                 <option>React.js</option>
                 <option>Angular</option>
-                <option>Pythos</option>
+                <option>Python</option>
+                <option>Javascript</option>
                 <option>Html5</option>
+                <option>NodeJs</option>
             </select>
         </div>
       <vue-editor v-model="article.content"></vue-editor>
@@ -32,21 +34,14 @@ import qs from 'qs';
 export default {
     data(){
       return{
-         pwd : '',
-         test : '',
-         check : '',
          article : {
            title : '',
            author : '',
+           classify:'',
            content : ''
          },
          alerttext:""
       }
-    },
-    watch:{
-       '$route'(){
-                console.log(3434)
-            }
     },
     methods:{
       submit(){     

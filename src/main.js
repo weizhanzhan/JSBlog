@@ -87,7 +87,7 @@ Vue.directive('content', function (el, binding) {
     val=val.replace(/&nbsp;/gi,'')
     val=val.replace(/&gt;/gi,'')
     val=val.replace(/&lt;/gi,'')
-    el.innerHTML= val.slice(0,50)+"...."
+    el.innerHTML= val.slice(0,50)+"...." 
   })
 new Vue({
     el: '#app',
