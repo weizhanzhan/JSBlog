@@ -53,7 +53,6 @@ export default Store= new Vuex.Store({
           state.loading=data
         },
         initBlogs(state,data){  //获取博客
-          console.log(data)
            state.Blogs=data.blogs
            state.allcount=data.count
         },

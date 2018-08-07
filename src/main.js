@@ -33,8 +33,8 @@ import { GetNext } from './api/getData';
 Vue.prototype.Base=Base
  
 
-// axios.defaults.baseURL="http://111.231.59.56:5000/api";
-axios.defaults.baseURL="http://localhost:5000/api";
+axios.defaults.baseURL="http://111.231.59.56:5000/api";
+//axios.defaults.baseURL="http://localhost:5000/api";
 Vue.prototype.http=axios
 
 Vue.prototype.$loading=state=>{
@@ -76,8 +76,6 @@ axios.interceptors.response.use(
     return response;
    } 
 );
-
-
 Vue.directive('date', function (el, binding) {
   el.innerHTML=new Date(binding.value.date).Format("yyyy-MM-dd hh:mm:ss")
 })

@@ -1,6 +1,7 @@
 <template>
      <ul class="node-list">
-        <li class="list-item" v-for="(blog,index) in blogs" :key="index">              
+        <li class="list-item" v-if="blogs.length!=0" v-for="(blog,index) in blogs" :key="index"> 
+                    
             <div class="node-content" id="contentWz" >
                 <div class="author">
                     <a class="avatar">
@@ -25,6 +26,9 @@
                 <img class="wrap-image" :src="blog.img" />
             </div> 
                                     
+        </li>
+        <li v-if="blogs.length==0" style="text-align:center">
+            <img src="@/assest/img/null.gif">
         </li>
     </ul>
 </template>

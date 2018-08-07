@@ -1,6 +1,9 @@
 <template>
     <div>
-       <h1>{{blog.title}}</h1>
+       <button class="ui basic button" @click="$router.go(-1)">
+          <i class="arrow circle left icon"></i>返回
+       </button>
+       <h1 style="text-align:center">{{blog.title}}</h1>
        <div class="quillWrapper">
          <div class="ql-container ql-snow">
           <div class="ql-editor"> 

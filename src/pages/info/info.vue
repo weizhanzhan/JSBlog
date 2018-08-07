@@ -3,7 +3,7 @@
         <div class="ui items">
             <div class="ui two column grid">
                 <div class="column">
-                    <div class="ui raised segment">
+                    <div class="ui raised segment bg">
                         <a class="ui blue ribbon label">Introduce</a> Brief Introduction
                         <p></p>
                     </div>
@@ -18,13 +18,13 @@
                     <div class="description">
                         <p>2018毕业于常州信息职业技术学院软件技术专业，主修C#、Asp .Net MVC、javascript</p>
                         <p>毕业从事web前端开发，业务前端框架Vue.js，主要负责开发模块化前端，根据需求实现页面效果，以及ajax与后台交互</p>
-                        <p>熟悉ES6,H5,Css3,Node.js，自己项目中也通过node.js开发result Api</p>
+                        <p>熟悉ES6,H5,Css3,Node.js，自己项目中也通过node.js开发 Api</p>
                     </div>
                 </div>
             </div>
             <div class="ui two column grid">
                 <div class="column">
-                    <div class="ui raised segment">
+                    <div class="ui raised segment bg">
                         <a class="ui red ribbon label">Working</a>
                         <span>My Details</span>
                         <p></p>
@@ -55,7 +55,7 @@
             </div>
             <div class="ui two column grid">
                 <div class="column">
-                    <div class="ui raised segment">
+                    <div class="ui raised segment bg">
                         <a class="ui green ribbon label">Project</a> Project display
                         <p></p>
                     </div>
@@ -138,5 +138,8 @@
     }
     .img{
         flex: 1
+    }
+    .bg{
+        background: unset
     }
 </style>

@@ -3,7 +3,7 @@
       <div class="container">          
         <div class="row">
             <div class="main">
-                <home-header :info="info"></home-header>
+                <home-header ></home-header>
                 <home-content :taps="taps" ref="header"></home-content>
             </div>
             <home-classify :classify="classify"></home-classify>
@@ -21,29 +21,13 @@ import { getCategories } from '@/api/getData'
 export default {
     data(){
         return{
-            info:[
-                {num:0,text:'<a class="ui red label">Vue.js</a>'},
-                {num:0,text:'<a class="ui orange label">Node.js</a>'},
-                {num:0,text:'<a class="ui olive label">Asp.Net</a>'},
-                {num:0,text:'<a class="ui grey label">Jq&Js</a>'},
-                {num:0,text:'<a class="ui violet label">Mssql</a>'}
-               ],
             taps:[
                 {text:'文章',pid:1,pic:require('../../assest/img/remen.png')},
                 {text:'个人',pid:2,pic:require('../../assest/img/dongtai.png')},
                 {text:'留言',pid:3,pic:require('../../assest/img/newpinglun.png')},
-                {text:'写博客',pid:4,pic:require('../../assest/img/wenzhang.png')}
+                 {text:'写博客',pid:4,pic:require('../../assest/img/wenzhang.png')}
             ],
-            classify:[]
-            // classify:[
-            //     {imgUrl:"http://111.231.59.56:5000/images/classify/vue.png",text:"Vue.js"},
-            //     {imgUrl:"http://111.231.59.56:5000/images/classify/react.png",text:"React.js"},
-            //     {imgUrl:"http://111.231.59.56:5000/images/classify/pic_html5.gif",text:"H5"},
-            //     {imgUrl:"http://111.231.59.56:5000/images/classify/js.jpg",text:"JavaScript"},
-            //     {imgUrl:"http://111.231.59.56:5000/images/classify/nodejs.jpg",text:"Node.js"},
-            //     {imgUrl:"http://111.231.59.56:5000/images/classify/angular.jpg",text:"Angular.js"},
-            //     {imgUrl:"http://111.231.59.56:5000/images/classify/python.jpg",text:"Python"},
-            // ],    
+            classify:[]   
         }
     },
     components:{
@@ -96,10 +80,10 @@ export default {
 .row{
     margin: 0 auto;
     display: flex;
-    width: 85%;
+    width: 90%;
 }
 .main{
-    flex:0 0 66.66%;
+    flex:0 0 70.66%;
     margin-top:20px;
     width: 80px;
 }
@@ -240,7 +224,7 @@ export default {
     left: 30px;
 }
 .calssify-list{
-    margin-top: 55%;
+    margin-top: 85%;
     margin-left:23%
 }
 </style>

@@ -2,7 +2,7 @@
   <div> 
      <tfoot>
          <tr><th colspan="3">
-            <div class="ui right floated pagination menu">
+            <div class="ui right floated pagination menu" style="background:unset">
                 <a class="icon item" @click="up">
                    <i class="left chevron icon"></i>
                 </a>

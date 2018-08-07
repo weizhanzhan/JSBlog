@@ -6,7 +6,7 @@
   box-shadow: 0 1px 3px rgba(0,0,0,.3);
 }
 .theme-segment1{
-  background: gainsboro !important
+  background: unset !important
 }
 .theme-footer1{
   color: steelblue;

@@ -7,10 +7,16 @@
         </div>
         <div class="main-top-right">
             <div class="top-title">魏展展</div>
-            <div class="top-info">                                     
-                <div v-for="(i,index) in info" class="meta-block" :key="index">
-                    <span class="top-info-text" v-html="i.text"></span>
-                </div>  
+            <div class="top-info"> 
+                <div class="ui divided selection list">
+                <a class="item">
+                    <div class="ui green  horizontal label">前端切图仔</div>
+                    <div class="ui teal  horizontal label">后端搬运工</div>
+                    <div class="ui red  horizontal label">奋斗小青年</div>
+                    IT 小宅男 
+                </a>                  
+                </div>
+        
             </div>
         </div>                 
      </div>
@@ -19,9 +25,6 @@
 <script>
 export default {
     name:"home-header",
-    props:{
-        info:Array
-    }
 
 }
 </script>

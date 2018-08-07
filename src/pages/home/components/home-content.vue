@@ -14,8 +14,8 @@
                 </div>
                 <p></p>
             <div class="list-content">
-                    <transition name="bounce">                    
-                    <router-view></router-view>                  
+                <transition name="bounce">                                
+                      <router-view></router-view>                                     
                 </transition> 
             </div>
         </div>  
