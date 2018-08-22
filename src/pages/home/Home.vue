@@ -218,6 +218,11 @@ export default {
     flex: 1;
     
 }
+.slide-right{
+    width:100%;
+    margin-left: 10%!important;
+    margin-top: 65%!important;
+}
 .calssify-title{
     position: absolute;
     top:160px;
@@ -226,5 +231,24 @@ export default {
 .calssify-list{
     margin-top: 85%;
     margin-left:23%
+}
+
+
+@media only screen and (max-width:500px ) {
+    .row {
+        width: 100%;
+    }
+    .main{
+        width: 100%;
+        float: left;
+        flex:1 
+    }
+    .classify{
+        width: 100%;
+        float: left;
+    }
+    .slide-right{
+        margin: 0 !important
+    }
 }
 </style>

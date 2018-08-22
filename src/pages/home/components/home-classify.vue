@@ -1,7 +1,7 @@
 <template>
     <div class="classify">
        
-          <div class="ui two column grid" style="width:100%;margin-left: 10%;margin-top: 65%;">   
+          <div class="ui two column grid slide-right" >   
             <div class="column" style="width:100%">
                 <div class="ui segment bgsement">
                     <div>

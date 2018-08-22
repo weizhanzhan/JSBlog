@@ -16,6 +16,10 @@ export default {
   components: {
     IndexHeader,Foorter
   },
+  created(){
+       let status= /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent) ? "移动端" :"PC端";
+       console.log(status)
+  },
   computed:{
       ...mapState(['cssNum'])
   }

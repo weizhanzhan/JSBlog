@@ -4,6 +4,7 @@
 .theme-header1{
   background: gainsboro;
   box-shadow: 0 1px 3px rgba(0,0,0,.3);
+  width: 100%
 }
 .theme-segment1{
   background: unset !important
